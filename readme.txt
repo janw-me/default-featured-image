@@ -12,6 +12,7 @@ Add a default featured image to the media settings page
 == Description ==
 
 Add a default featured image to the media settings page. This featured image will show up if no featured image is set. Simple as that.
+
 If you want to use a diffrent image on certain occasions use the `dfi_thumbnail_id` filter like:
 
     <?php //this will work in your themes funcitons.php
