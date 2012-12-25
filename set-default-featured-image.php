@@ -1,7 +1,7 @@
 <?php
 /*
 plugin name: Default featured image
-Plugin URI: @todo set to the WP plugin directory
+Plugin URI: http://wordpress.org/extend/plugins/default-featured-image/
 Description: Allows users to select a default feartured image in the media settings
 Version: 0.9
 Author: Jan Willem Oostendorp
