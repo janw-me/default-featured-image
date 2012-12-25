@@ -13,23 +13,29 @@ Add a default featured image to the media settings page
 
 Add a default featured image to the media settings page. This featured image will show up if no featured image is set. Simple as that.
 
-If you want to use a diffrent image on certain occasions use the `dfi_thumbnail_id` filter like:
+If you want to use a different image on certain occasions use the `dfi_thumbnail_id` filter like:
 
-    <?php //this will work in your themes funcitons.php
-    // Dont use a featured image on page 5
+    <?php //this will work in your themes functions.php
+    // Don't use a featured image on page 5
     add_action('template_redirect', function () {
 			if ( is_single() ) {
 					add_filter('dfi_thumbnail_id', function () { return 0; } );
 			}
 		});
 
-    // use a diffrent image on the "book" posttype, it's id is 12
+    // use a different image on the "book" posttype, it's id is 12
     add_action('template_redirect', function () {
 			if ( is_single() ) {
 					add_filter('dfi_thumbnail_id', function () { return 12; } );
 			}
 		});
     ?>
+= Suggestions are welcome =
+ * Found a bug?
+ * Want to help to translate it in your language?
+ * Something to be improved?
+
+[Contact me](http://wordpress.org/support/plugin/default-featured-image)
 
 == Installation ==
 
@@ -40,11 +46,11 @@ If you want to use a diffrent image on certain occasions use the `dfi_thumbnail_
 
 == Frequently Asked Questions ==
 
-= can I exclude a page or give it a diffrent image? =
+= can I exclude a page or give it a different image? =
 
 yes. you can exclude all kinds of things with the [conditional tags](http://codex.wordpress.org/Conditional_Tags)
 
-    <?php //this will work in your themes funcitons.php
+    <?php //this will work in your themes functions.php
     // Dont use a featured image on page 5
     add_action('template_redirect', function () {
 			if ( is_single() ) {
@@ -52,23 +58,13 @@ yes. you can exclude all kinds of things with the [conditional tags](http://code
 			}
 		});
 
-    // use a diffrent image on the "book" posttype, it's id is 12
+    // use a different image on the "book" posttype, it's id is 12
     add_action('template_redirect', function () {
 			if ( is_single() ) {
 					add_filter('dfi_thumbnail_id', function () { return 12; } );
 			}
 		});
     ?>
-
-== Screenshots ==
-
-@todo
-
-1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from
-the /assets directory or the directory that contains the stable readme.txt (tags or trunk). Screenshots in the /assets
-directory take precedence. For example, `/assets/screenshot-1.png` would win over `/tags/4.3/screenshot-1.png`
-(or jpg, jpeg, gif).
-2. This is the second screen shot
 
 == Changelog ==
 
