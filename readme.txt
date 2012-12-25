@@ -48,7 +48,7 @@ If you want to use a different image on certain occasions use the `dfi_thumbnail
 
 = can I exclude a page or give it a different image? =
 
-yes. you can exclude all kinds of things with the [conditional tags](http://codex.wordpress.org/Conditional_Tags)
+yes, you can exclude all kinds of things with the [conditional tags](http://codex.wordpress.org/Conditional_Tags)
 
     <?php //this will work in your themes functions.php
     // Dont use a featured image on page 5
