@@ -68,7 +68,7 @@ yes. you can exclude all kinds of things with the [conditional tags](http://code
 
 == Screenshots ==
 
-1. The setting on teh media page
+1. The setting on the media page
 2. The media manager will start with the current selected image
 
 == Changelog ==
