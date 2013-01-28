@@ -122,8 +122,10 @@ class default_featured_image
 
 	// Validate user input
 	function input_validation( $input ) {
-		//@todo Validation
-		return $input;
+		if ( wp_attachment_is_image( $input) ) {
+			return $input;
+		}
+		return false;
 	}
 
 	/**

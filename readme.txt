@@ -81,6 +81,7 @@ yes you can with the filter `dfi_thumbnail_html`.
 * Plugin will now remove it's setting on plugin removal
 * added a default class to the `<img>` tag, if it shows a default featured image
 * The default featured image will now also return with `get_post_thumbnail_id`, making the chance that it fail far far smaller.
+* The image given in the media page is now validated
 
 == Upgrade Notice ==
 
