@@ -56,7 +56,7 @@ yes. you can exclude all kinds of things with the [conditional tags](http://code
 			}
 		});
 
-= Can I change the HTML of the image returned?
+= Can I change the HTML of the image returned? =
 yes you can with the filter `dfi_thumbnail_html`.
 	
 	function dfi_add_class($html, $post_id, $default_thumbnail_id, $size, $attr) {
