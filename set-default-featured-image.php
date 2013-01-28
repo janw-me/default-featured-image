@@ -3,7 +3,7 @@
 plugin name: Default featured image
 Plugin URI: http://wordpress.org/extend/plugins/default-featured-image/
 Description: Allows users to select a default feartured image in the media settings
-Version: 0.9
+Version: 1.0
 Author: Jan Willem Oostendorp
 License: GPLv2 or later
 */
@@ -22,17 +22,58 @@ class default_featured_image
 		add_action( 'admin_print_scripts-options-media.php', array( &$this, 'admin_scripts' ) );
 		// get the preview image ajaxs call
 		add_action( 'wp_ajax_dfi_change_preview', array( &$this, 'ajax_wrapper' ) );
+		// set dfi meta key on every ocasion
+		add_filter( 'get_post_metadata', array(&$this, 'set_dfi_meta_key'), 10, 4 );
 		// display a default featured image
-		add_filter( 'post_thumbnail_html', array( &$this, 'show_dfi' ), 10, 5 );
+		add_filter( 'post_thumbnail_html', array( &$this, 'show_dfi' ), 20, 5 );
 		// add a link on the plugin page to the setting
 		add_filter('plugin_action_links', array(&$this, 'add_settings_link'), 10, 2 );
 		// add L10n
 		add_action( 'init', array(&$this, 'L10n') );
+		// remove setting on removal
+		register_uninstall_hook(__FILE__, array('default_featured_image', 'uninstall'));
+
 	}
 
+	static function uninstall() {
+		delete_option( 'dfi_image_id' );
+	}
 
 	function L10n() {
 		load_plugin_textdomain(self::L10n, false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+	}
+
+	function set_dfi_meta_key( $null, $object_id, $meta_key, $single ) {
+		if (  is_admin() )
+			return;
+
+		// only affect thumbnails
+		if ( '_thumbnail_id' != $meta_key )
+			return;
+
+		//@see /wp-includes/meta.php get_metadata()
+		$meta_type = 'post';
+		$meta_cache = wp_cache_get($object_id, $meta_type . '_meta');
+
+		if ( !$meta_cache ) {
+			$meta_cache = update_meta_cache( $meta_type, array( $object_id ) );
+			$meta_cache = $meta_cache[$object_id];
+		}
+
+		if ( !$meta_key )
+			return $meta_cache;
+
+		if ( isset($meta_cache[$meta_key]) ) {
+			if ( $single )
+				return maybe_unserialize( $meta_cache[$meta_key][0] );
+			else
+				return array_map('maybe_unserialize', $meta_cache[$meta_key]);
+		}
+
+		if ($single)
+			return get_option( 'dfi_image_id' ); // set the default featured img ID
+		else
+			return array();
 	}
 
 	/**
@@ -144,16 +185,16 @@ class default_featured_image
 	 * @return string
 	 */
 	function show_dfi( $html, $post_id, $post_thumbnail_id, $size, $attr ) {
-		// if an image is set return the image
-		if ( !empty( $html ) ) {
-			return $html;
-		}
+		$default_thumbnail_id = get_option( 'dfi_image_id' ); //select the default thumb
 
-		$default_thumbnail_id = get_option( 'default_featured_image' ); //select the default thumb
+		// if an image is set return that image
+		if ( $default_thumbnail_id != $post_thumbnail_id )
+			return $html;
+
+		// allow to set an other ID see the readme.txt for details
 		$default_thumbnail_id = apply_filters( 'dfi_thumbnail_id', $default_thumbnail_id );
 
-		//set title to post
-		$attr['title'] = get_the_title(); //@todo still usefull?
+		$attr['class'] = "attachment-{$size} default-featured-img";
 
 		$html = wp_get_attachment_image( $default_thumbnail_id, $size, false, $attr );
 		$html = apply_filters( 'dfi_thumbnail_html', $html, $post_id, $default_thumbnail_id, $size, $attr );
