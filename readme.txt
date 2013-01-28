@@ -12,6 +12,7 @@ Add a default featured image to the media settings page
 == Description ==
 
 Add a default featured image to the media settings page. This featured image will show up if no featured image is set. Simple as that.
+
 For exceptions and to see which functions to use see the [FAQ](http://wordpress.org/extend/plugins/default-featured-image/faq/).
 
 = Suggestions are welcome =
@@ -58,15 +59,15 @@ yes. you can exclude all kinds of things with the [conditional tags](http://code
 
 = Can I change the HTML of the image returned? =
 yes you can with the filter `dfi_thumbnail_html`.
-	
+
 	function dfi_add_class($html, $post_id, $default_thumbnail_id, $size, $attr) {
 		// add a class to the existing class list
 		$attr['class'] = 'my-class '.$attr['class'];
-		
+
 		return wp_get_attachment_image( $default_thumbnail_id, $size, false, $attr );
 	}
 	add_filter( 'dfi_thumbnail_html', 'dfi_add_class', 10, 5 );
-	
+
 == Screenshots ==
 
 1. The setting on the media page
