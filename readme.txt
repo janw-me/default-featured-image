@@ -52,7 +52,7 @@ yes. you can exclude all kinds of things with the [conditional tags](http://code
 **use a different image on the "book" posttype, it's id is 12**
 
     add_action('template_redirect', function () {
-			if ( is_singular( 'book' ) == get_post_type() == 'book') {
+			if ( is_singular( 'book' ) || get_post_type() == 'book') {
 				add_filter('dfi_thumbnail_id', function () { return 12; } );
 			}
 		});
