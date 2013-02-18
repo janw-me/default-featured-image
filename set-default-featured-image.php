@@ -196,7 +196,12 @@ class default_featured_image
 		// allow to set an other ID see the readme.txt for details
 		$default_thumbnail_id = apply_filters( 'dfi_thumbnail_id', $default_thumbnail_id );
 
-		$attr['class'] = "attachment-{$size} default-featured-img";
+		if (isset($attr['class']) ) {
+			$attr['class'] .= " default-featured-img";
+		} else {
+			//attachment-$size is a default class `wp_get_attachment_image` would otherwise add. It won't add it if there are classes already there
+			$attr['class'] = "attachment-{$size} default-featured-img";
+		}
 
 		$html = wp_get_attachment_image( $default_thumbnail_id, $size, false, $attr );
 		$html = apply_filters( 'dfi_thumbnail_html', $html, $post_id, $default_thumbnail_id, $size, $attr );

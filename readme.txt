@@ -3,7 +3,7 @@ Contributors: janwoostendorp
 Tags: media, image
 Requires at least: 3.5
 Tested up to: 3.5.1
-Stable tag: 1.0
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -43,26 +43,43 @@ yes. you can exclude all kinds of things with the [conditional tags](http://code
 
 **Dont use a featured image on page 5**
 
-    add_action('template_redirect', function () {
+		function dfi_skip_page( $dfi_id ) {
 			if ( is_single( 5 ) || get_the_ID() == 5 ) {
-				add_filter('dfi_thumbnail_id', function () { return 0; } );
+				return 0; // invalid id
 			}
-		});
+			return $dfi_id; // the original featured image id
+		}
+		add_filter('dfi_thumbnail_id', 'dfi_skip_page' );
 
-**use a different image on the "book" posttype, it's id is 12**
 
-    add_action('template_redirect', function () {
-			if ( is_singular( 'book' ) || get_post_type() == 'book') {
-				add_filter('dfi_thumbnail_id', function () { return 12; } );
+**Use a different image on the "book" posttype. The ID of the image is 12**
+
+		function dfi_posttype_book( $dfi_id ) {
+			if ( is_singular( 'book' ) || get_post_type() == 'book' ) {
+				return 12; // the image id
 			}
-		});
+			return $dfi_id; // the original featured image id
+		}
+		add_filter('dfi_thumbnail_id', 'dfi_posttype_book' );
+
+**Use a different image on certain categories**
+
+		function dfi_category( $dfi_id ) {
+			if ( has_category( 'category-slug' ) ) {
+				return 13; // the image id
+			} else if ( has_category( 'other_category' ) ) {
+				return 14; // the image id
+			}
+			return $dfi_id; // the original featured image id
+		}
+		add_filter('dfi_thumbnail_id', 'dfi_category' );
 
 = Can I change the HTML of the image returned? =
 yes you can with the filter `dfi_thumbnail_html`.
 
 	function dfi_add_class($html, $post_id, $default_thumbnail_id, $size, $attr) {
 		// add a class to the existing class list
-		$attr['class'] = 'my-class '.$attr['class'];
+		$attr['class'] .= ' my-class';
 
 		return wp_get_attachment_image( $default_thumbnail_id, $size, false, $attr );
 	}
@@ -83,6 +100,9 @@ yes you can with the filter `dfi_thumbnail_html`.
 * added a default class to the `<img>` tag, if it shows a default featured image
 * The default featured image will now also return with `get_post_thumbnail_id`, making the chance that it fail far far smaller.
 * The image given in the media page is now validated
+
+= 1.1 =
+* Fixed inheriting classes of the image
 
 == Upgrade Notice ==
 
