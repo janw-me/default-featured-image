@@ -1,12 +1,12 @@
 <?php
-/*
-plugin name: Default featured image
-Plugin URI: http://wordpress.org/extend/plugins/default-featured-image/
-Description: Allows users to select a default feartured image in the media settings
-Version: 1.0
-Author: Jan Willem Oostendorp
-License: GPLv2 or later
-*/
+/**
+ * plugin name: Default featured image
+ * Plugin URI: http://wordpress.org/extend/plugins/default-featured-image/
+ * Description: Allows users to select a default feartured image in the media settings
+ * Version: 1.1
+ * Author: Jan Willem Oostendorp
+ * License: GPLv2 or later
+ */
 
 class default_featured_image
 {
@@ -43,15 +43,25 @@ class default_featured_image
 		load_plugin_textdomain(self::L10n, false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 	}
 
-	function set_dfi_meta_key( $null, $object_id, $meta_key, $single ) {
-		if (  is_admin() )
-			return;
+	/**
+	 * Mostly the same as `get_metadata()` makes sure any postthumbnail function gets checked at
+	 * the deepest level possible.
+	 *
+	 * @see /wp-includes/meta.php get_metadata()
+	 *
+	 * @param null $null
+	 * @param int $object_id ID of the object metadata is for
+	 * @param string $meta_key Optional. Metadata key. If not specified, retrieve all metadata for
+	 *   the specified object.
+	 * @param bool $single Optional, default is false. If true, return only the first value of the
+	 *   specified meta_key. This parameter has no effect if meta_key is not specified.
+	 * @return string|array Single metadata value, or array of values
+	 */
+	function set_dfi_meta_key( $null = null, $object_id, $meta_key, $single ) {
+		// only affect thumbnails on the frontend
+		if (  is_admin() || '_thumbnail_id' != $meta_key )
+			return $null;
 
-		// only affect thumbnails
-		if ( '_thumbnail_id' != $meta_key )
-			return;
-
-		//@see /wp-includes/meta.php get_metadata()
 		$meta_type = 'post';
 		$meta_cache = wp_cache_get($object_id, $meta_type . '_meta');
 
@@ -71,7 +81,8 @@ class default_featured_image
 		}
 
 		if ($single)
-			return get_option( 'dfi_image_id' ); // set the default featured img ID
+			// allow to set an other ID see the readme.txt for details
+			return apply_filters( 'dfi_thumbnail_id', get_option( 'dfi_image_id' ) ); // set the default featured img ID
 		else
 			return array();
 	}
@@ -192,9 +203,6 @@ class default_featured_image
 		// if an image is set return that image
 		if ( $default_thumbnail_id != $post_thumbnail_id )
 			return $html;
-
-		// allow to set an other ID see the readme.txt for details
-		$default_thumbnail_id = apply_filters( 'dfi_thumbnail_id', $default_thumbnail_id );
 
 		if (isset($attr['class']) ) {
 			$attr['class'] .= " default-featured-img";
