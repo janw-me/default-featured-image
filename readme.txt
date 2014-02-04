@@ -3,7 +3,7 @@ Contributors: janwoostendorp
 Tags: media, image
 Requires at least: 3.5
 Tested up to: 3.8.1
-Stable tag: 1.2
+Stable tag: 1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -38,41 +38,49 @@ This plugin can't guarantee that it works. That depends on the themes. Still I w
 The plugin uses the default WordPress functions `the_post_thumbnail` or `get_the_post_thumbnail`. `has_post_thumbnail` will always return true. `get_post_thumbnail_id` will return the ID set on the post or the DFI you set.
 
 = Can I exclude a page or give it a different image? =
+Yes you can by using the buildin `dfi_thumbnail_id` filter. It will give you the post id which you can use to check against.
 
-yes. you can exclude all kinds of things with the [conditional tags](http://codex.wordpress.org/Conditional_Tags). A few examples which you can paste in your `functions.php`
+**Don't use a featured image on page 23**
 
-**Dont use a featured image on page 5**
+    function dfi_skip_page ( $dfi_id, $post_id ) {
+      if ( $post_id == 23 ) {
+        return 0; // invalid id
+      }
+      return $dfi_id; // the original featured image id
+    }
+    add_filter( 'dfi_thumbnail_id', 'dfi_skip_page', 10 , 2 );
 
-		function dfi_skip_page( $dfi_id ) {
-			if ( is_single( 5 ) || get_the_ID() == 5 ) {
-				return 0; // invalid id
-			}
-			return $dfi_id; // the original featured image id
-		}
-		add_filter('dfi_thumbnail_id', 'dfi_skip_page' );
+**Use a different image for some categories **
+The example below only works if the post has 'animals' as a category. Asigning just 'cats' won't work
+To do that just don't nest the `if`
 
+    function dfi_category ( $dfi_id, $post_id ) {
+      // all which have 'animals' as a category
+      if ( has_category( 'animals', $post_id ) ) {
 
-**Use a different image on the "book" posttype. The ID of the image is 12**
+        //sub category
+        if ( has_category( 'cats', $post_id ) ) {
+          return 7; // cats img
+        } else if has_category( 'dogs', $post_id ) {
+          return 8; // dogs img
+        }
 
-		function dfi_posttype_book( $dfi_id ) {
-			if ( is_singular( 'book' ) || get_post_type() == 'book' ) {
-				return 12; // the image id
-			}
-			return $dfi_id; // the original featured image id
-		}
-		add_filter('dfi_thumbnail_id', 'dfi_posttype_book' );
+        return 6; // default animals picture
+      }
+      return $dfi_id; // the original featured image id
+    }
+    add_filter( 'dfi_thumbnail_id', 'dfi_category', 10, 2 );
 
-**Use a different image on certain categories**
+** Different image for the posttype 'wiki' **
 
-		function dfi_category( $dfi_id ) {
-			if ( has_category( 'category-slug' ) ) {
-				return 13; // the image id
-			} else if ( has_category( 'other_category' ) ) {
-				return 14; // the image id
-			}
-			return $dfi_id; // the original featured image id
-		}
-		add_filter('dfi_thumbnail_id', 'dfi_category' );
+    function dfi_posttype_book ( $dfi_id, $post_id ) {
+      $post = get_post($post_id);
+      if ( 'wiki' === $post->post_type ) {
+        return 31; // the image id
+      }
+      return $dfi_id; // the original featured image id
+    }
+    add_filter( 'dfi_thumbnail_id', 'dfi_posttype_book', 10, 2 );
 
 = Can I change the HTML of the image returned? =
 yes you can with the filter `dfi_thumbnail_html`.
@@ -103,6 +111,12 @@ yes you can with the filter `dfi_thumbnail_html`.
 
 = 1.1 =
 * Fixed inheriting classes of the image
+
+= 1.2 =
+* Filter `dfi_thumbnail_id` is now called in an earlier stage.
+
+= 1.3 =
+* Filter `dfi_thumbnail_id` now also returns the post ID of the post (or any postype) that is being called. See the FAQ for new examples
 
 == Upgrade Notice ==
 
