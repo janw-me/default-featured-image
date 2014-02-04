@@ -50,7 +50,8 @@ Yes you can by using the buildin `dfi_thumbnail_id` filter. It will give you the
     }
     add_filter( 'dfi_thumbnail_id', 'dfi_skip_page', 10 , 2 );
 
-**Use a different image for some categories **
+**Use a different image for some categories**
+
 The example below only works if the post has 'animals' as a category. Asigning just 'cats' won't work
 To do that just don't nest the `if`
 
@@ -71,7 +72,7 @@ To do that just don't nest the `if`
     }
     add_filter( 'dfi_thumbnail_id', 'dfi_category', 10, 2 );
 
-** Different image for the posttype 'wiki' **
+**Different image for the posttype 'wiki'**
 
     function dfi_posttype_book ( $dfi_id, $post_id ) {
       $post = get_post($post_id);
