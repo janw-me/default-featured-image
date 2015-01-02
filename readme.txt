@@ -119,6 +119,10 @@ yes you can with the filter `dfi_thumbnail_html`.
 = 1.3 =
 * Filter `dfi_thumbnail_id` now also returns the post ID of the post (or any postype) that is being called. See the FAQ for new examples
 
+= 1.4 =
+* Added plugin images both the plugin header as the thumbnail. Based on the boat WP.org uses in it's theme previews
+* Fixed a bug where the ajax calls didn't return the DFI [forum thread](https://wordpress.org/support/topic/dfi-woocommerce-facetwp?replies=10)
+
 == Upgrade Notice ==
 
 = 1.0 =
