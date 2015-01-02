@@ -120,7 +120,7 @@ class default_featured_image
 		<input id="dfi_id" type="hidden" value="<?php echo esc_attr( $value ); ?>" name="dfi_image_id"/>
 
 		<a id="dfi-set-dfi" class="button" title="<?php _e( 'Select default featured image', self::L10n ) ?>" href="#">
-			<span class="icon16 icon-media"></span>
+			<span style="margin-top: 3px;" class="dashicons dashicons-format-image"></span>
 			<?php _e( 'Select default featured image', self::L10n ) ?>
 		</a>
 		<div style="margin-top:5px;">
