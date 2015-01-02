@@ -3,7 +3,7 @@
  * plugin name: Default featured image
  * Plugin URI: http://wordpress.org/extend/plugins/default-featured-image/
  * Description: Allows users to select a default feartured image in the media settings
- * Version: 1.3
+ * Version: 1.4
  * Author: Jan Willem Oostendorp
  * License: GPLv2 or later
  */
@@ -58,8 +58,8 @@ class default_featured_image
 	 * @return string|array Single metadata value, or array of values
 	 */
 	function set_dfi_meta_key( $null = null, $object_id, $meta_key, $single ) {
-		// only affect thumbnails on the frontend
-		if (  is_admin() || '_thumbnail_id' != $meta_key )
+		// only affect thumbnails on the frontend, do allow ajax calls
+		if ( ( is_admin() && ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) ) || '_thumbnail_id' != $meta_key )
 			return $null;
 
 		$meta_type = 'post';
