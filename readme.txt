@@ -3,7 +3,7 @@ Contributors: janwoostendorp
 Tags: media, image
 Requires at least: 3.5
 Tested up to: 4.4.2
-Stable tag: 1.4
+Stable tag: 1.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -122,6 +122,10 @@ yes you can with the filter `dfi_thumbnail_html`.
 = 1.4 =
 * Added plugin images both the plugin header as the thumbnail. Based on the boat WP.org uses in it's theme previews
 * Fixed a bug where the ajax calls didn't return the DFI [forum thread](https://wordpress.org/support/topic/dfi-woocommerce-facetwp?replies=10)
+
+= 1.5 =
+* Fixed two small (and rare) warnings
+* Added translation domain
 
 == Upgrade Notice ==
 
