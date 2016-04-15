@@ -200,6 +200,10 @@ class default_featured_image
 	function show_dfi( $html, $post_id, $post_thumbnail_id, $size, $attr ) {
 		$default_thumbnail_id = get_option( 'dfi_image_id' ); //select the default thumb
 
+		if ( is_array($size)) {
+			$size = 'size-' . implode( 'x', $size);
+		}
+        
 		// if an image is set return that image
 		if ( $default_thumbnail_id != $post_thumbnail_id )
 			return $html;
@@ -208,7 +212,7 @@ class default_featured_image
 			$attr['class'] .= " default-featured-img";
 		} else {
 			//attachment-$size is a default class `wp_get_attachment_image` would otherwise add. It won't add it if there are classes already there
-			$attr['class'] = "attachment-{$size} default-featured-img";
+			$attr = array ('class' => "attachment-{$size} default-featured-img");
 		}
 
 		$html = wp_get_attachment_image( $default_thumbnail_id, $size, false, $attr );
