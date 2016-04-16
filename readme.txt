@@ -3,7 +3,7 @@ Contributors: janwoostendorp
 Tags: media, image
 Requires at least: 3.5
 Tested up to: 4.5
-Stable tag: 1.5
+Stable tag: 1.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -126,6 +126,9 @@ yes you can with the filter `dfi_thumbnail_html`.
 = 1.5 =
 * Fixed two small (and rare) warnings
 * Added translation domain
+
+= 1.6 =
+* On of the last fixes didn't account for all situations.
 
 == Upgrade Notice ==
 
