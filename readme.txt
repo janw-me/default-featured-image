@@ -3,7 +3,7 @@ Contributors: janwoostendorp
 Tags: media, image
 Requires at least: 3.5
 Tested up to: 4.8
-Stable tag: 1.6
+Stable tag: 1.6.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -101,8 +101,28 @@ yes you can with the filter `dfi_thumbnail_html`.
 
 == Changelog ==
 
-= 0.9 =
-* Launch
+= 1.6.1 =
+* Small readne.txt update.
+
+= 1.6 =
+* On of the last fixes didn't account for all situations.
+
+= 1.5 =
+* Fixed two small (and rare) warnings
+* Added translation domain
+
+= 1.4 =
+* Added plugin images both the plugin header as the thumbnail. Based on the boat WP.org uses in it's theme previews
+* Fixed a bug where the ajax calls didn't return the DFI [forum thread](https://wordpress.org/support/topic/dfi-woocommerce-facetwp?replies=10)
+
+= 1.3 =
+* Filter `dfi_thumbnail_id` now also returns the post ID of the post (or any postype) that is being called. See the FAQ for new examples
+
+= 1.2 =
+* Filter `dfi_thumbnail_id` is now called in an earlier stage.
+
+= 1.1 =
+* Fixed inheriting classes of the image
 
 = 1.0 =
 * Plugin will now remove it's setting on plugin removal
@@ -110,25 +130,8 @@ yes you can with the filter `dfi_thumbnail_html`.
 * The default featured image will now also return with `get_post_thumbnail_id`, making the chance that it fail far far smaller.
 * The image given in the media page is now validated
 
-= 1.1 =
-* Fixed inheriting classes of the image
-
-= 1.2 =
-* Filter `dfi_thumbnail_id` is now called in an earlier stage.
-
-= 1.3 =
-* Filter `dfi_thumbnail_id` now also returns the post ID of the post (or any postype) that is being called. See the FAQ for new examples
-
-= 1.4 =
-* Added plugin images both the plugin header as the thumbnail. Based on the boat WP.org uses in it's theme previews
-* Fixed a bug where the ajax calls didn't return the DFI [forum thread](https://wordpress.org/support/topic/dfi-woocommerce-facetwp?replies=10)
-
-= 1.5 =
-* Fixed two small (and rare) warnings
-* Added translation domain
-
-= 1.6 =
-* On of the last fixes didn't account for all situations.
+= 0.9 =
+* Launch
 
 == Upgrade Notice ==
 
