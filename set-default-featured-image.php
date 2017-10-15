@@ -1,9 +1,11 @@
-<?php
+<?php /** @noinspection PhpUndefinedClassInspection */
+
 /**
  * plugin name: Default featured image
  * Plugin URI: http://wordpress.org/extend/plugins/default-featured-image/
- * Description: Allows users to select a default feartured image in the media settings
- * Version: 1.6
+ * Description: Allows users to select a default featured image in the media settings
+ * Version: 1.6.1
+ * Requires PHP: 5.5
  * Author: Jan Willem Oostendorp
  * License: GPLv2 or later
  * Text Domain: default-featured-image
@@ -21,9 +23,9 @@ class default_featured_image
 		add_action( 'admin_init', array( &$this, 'media_setting' ) );
 		// enqueue the js
 		add_action( 'admin_print_scripts-options-media.php', array( &$this, 'admin_scripts' ) );
-		// get the preview image ajaxs call
+		// get the preview image ajax call
 		add_action( 'wp_ajax_dfi_change_preview', array( &$this, 'ajax_wrapper' ) );
-		// set dfi meta key on every ocasion
+		// set dfi meta key on every occasion
 		add_filter( 'get_post_metadata', array(&$this, 'set_dfi_meta_key'), 10, 4 );
 		// display a default featured image
 		add_filter( 'post_thumbnail_html', array( &$this, 'show_dfi' ), 20, 5 );
@@ -45,7 +47,7 @@ class default_featured_image
 	}
 
 	/**
-	 * Mostly the same as `get_metadata()` makes sure any postthumbnail function gets checked at
+	 * Mostly the same as `get_metadata()` makes sure any post thumbnail function gets checked at
 	 * the deepest level possible.
 	 *
 	 * @see /wp-includes/meta.php get_metadata()
@@ -183,7 +185,8 @@ class default_featured_image
 	function add_settings_link( $links, $file ) {
 
 		if ( $file == plugin_basename( __FILE__ ) ) {
-			$settings_link = '<a href="options-media.php#dfi-set-dfi">' . __( 'Settings' )/*get this from WP core*/ . '</a>';
+		    $href = admin_url('options-media.php#dfi-set-dfi');
+			$settings_link = '<a href="' . $href . '">' . __( 'Settings' )/*get this from WP core*/ . '</a>';
 			array_unshift( $links, $settings_link );
 		}
 		return $links;
@@ -191,7 +194,7 @@ class default_featured_image
 
 	/**
 	 * Set a default featured image if it is missing
-	 * @param sting $html
+	 * @param string $html
 	 * @param int $post_id
 	 * @param int $post_thumbnail_id
 	 * @param string $size

@@ -24,8 +24,7 @@ jQuery(document).ready(function ($) {
 	 * @return html string with the image
 	 */
 	function set_preview_image(image_id) {
-		var responseText,
-			data = {
+		var data = {
 				action: 'dfi_change_preview',
 				image_id: image_id
 			};
@@ -34,11 +33,11 @@ jQuery(document).ready(function ($) {
 			set_preview_html(response);
 		});
 
-		return responseText;
+		// return responseText;
 	}
 
 	/**
-	 * set a loading image untill the ajax is ready
+	 * set a loading image until the ajax is ready
 	 */
 	function set_loading_image() {
 		var $cur_preview = $td.find('#preview-image'),
@@ -99,7 +98,7 @@ jQuery(document).ready(function ($) {
 			selection.add(attachment ? [ attachment ] : []);
 		});
 
-		// everthing is set open the media manager
+		// everything is set open the media manager
 		frame.open();
 	});
 

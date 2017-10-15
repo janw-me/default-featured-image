@@ -38,7 +38,7 @@ This plugin can't guarantee that it works. That depends on the themes. Still I w
 The plugin uses the default WordPress functions `the_post_thumbnail` or `get_the_post_thumbnail`. `has_post_thumbnail` will always return true. `get_post_thumbnail_id` will return the ID set on the post or the DFI you set.
 
 = Can I exclude a page or give it a different image? =
-Yes you can by using the buildin `dfi_thumbnail_id` filter. It will give you the post id which you can use to check against.
+Yes you can by using the builtin `dfi_thumbnail_id` filter. It will give you the post id which you can use to check against.
 
 **Don't use a featured image on page 23**
 
@@ -52,7 +52,7 @@ Yes you can by using the buildin `dfi_thumbnail_id` filter. It will give you the
 
 **Use a different image for some categories**
 
-The example below only works if the post has 'animals' as a category. Asigning just 'cats' won't work
+The example below only works if the post has 'animals' as a category. Assigning just 'cats' won't work
 To do that just don't nest the `if`
 
     function dfi_category ( $dfi_id, $post_id ) {
@@ -72,7 +72,7 @@ To do that just don't nest the `if`
     }
     add_filter( 'dfi_thumbnail_id', 'dfi_category', 10, 2 );
 
-**Different image for the posttype 'wiki'**
+**Different image for the post_type 'wiki'**
 
     function dfi_posttype_book ( $dfi_id, $post_id ) {
       $post = get_post($post_id);
@@ -102,7 +102,7 @@ yes you can with the filter `dfi_thumbnail_html`.
 == Changelog ==
 
 = 1.6.1 =
-* Small readne.txt update.
+* Small readme.txt update.
 
 = 1.6 =
 * On of the last fixes didn't account for all situations.
