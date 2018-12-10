@@ -5,7 +5,6 @@
  * Plugin URI: http://wordpress.org/extend/plugins/default-featured-image/
  * Description: Allows users to select a default featured image in the media settings
  * Version: 1.6.1
- * Requires PHP: 5.5
  * Author: Jan Willem Oostendorp
  * License: GPLv2 or later
  * Text Domain: default-featured-image
