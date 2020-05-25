@@ -60,11 +60,17 @@ class Default_Featured_Image {
 	 *                              specified meta_key. This parameter has no effect if meta_key is not specified.
 	 *
 	 * @return string|array Single metadata value, or array of values
-	 * @see /wp-includes/meta.php get_metadata()
+	 * @see get_metadata() in /wp-includes/meta.php
 	 */
 	public function set_dfi_meta_key( $null, $object_id, $meta_key, $single ) {
 		// only affect thumbnails on the frontend, do allow ajax calls.
 		if ( ( is_admin() && ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) ) || '_thumbnail_id' !== $meta_key ) {
+			return $null;
+		}
+
+		// ignore attachments, non image attachments have icons, which get overridden otherwise.
+		$post = get_post( $object_id );
+		if ( ! empty( $post->post_type ) && 'attachment' === $post->post_type ) {
 			return $null;
 		}
 
