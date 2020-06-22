@@ -1,15 +1,18 @@
 <?php
 /**
- * Plugin name: Default featured image
+ * Plugin Name: Default featured image
  * Plugin URI: http://wordpress.org/extend/plugins/default-featured-image/
  * Description: Allows users to select a default featured image in the media settings
- * Version: 1.6.2
+ * Version: 1.6.3
+ * Requires at least: 4.0
+ * Requires PHP: 5.6
  * Author: Jan Willem Oostendorp
+ * Author URI: https://janw.me/
  * License: GPLv2 or later
  * Text Domain: default-featured-image
  */
 class Default_Featured_Image {
-	const VERSION = '1.6.2';
+	const VERSION = '1.6.3';
 
 	/**
 	 * Hook everything
