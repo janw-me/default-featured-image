@@ -3,7 +3,7 @@
  * Plugin Name: Default featured image
  * Plugin URI: http://wordpress.org/extend/plugins/default-featured-image/
  * Description: Allows users to select a default featured image in the media settings
- * Version: 1.6.3
+ * Version: 1.6.4
  * Requires at least: 4.0
  * Requires PHP: 5.6
  * Author: Jan Willem Oostendorp
@@ -12,7 +12,7 @@
  * Text Domain: default-featured-image
  */
 class Default_Featured_Image {
-	const VERSION = '1.6.3';
+	const VERSION = '1.6.4';
 
 	/**
 	 * Hook everything
@@ -52,10 +52,9 @@ class Default_Featured_Image {
 	}
 
 	/**
-	 * Mostly the same as `get_metadata()` makes sure any post thumbnail function gets checked at
-	 * the deepest level possible.
+	 * Add the dfi_id to the meta data if needed.
 	 *
-	 * @param null|mixed $null      Should be null, because we want to override the meta value.
+	 * @param null|mixed $null      Should be null, we don't use it because we update the meta cache.
 	 * @param int        $object_id ID of the object metadata is for.
 	 * @param string     $meta_key  Optional. Metadata key. If not specified, retrieve all metadata for
 	 *                              the specified object.
@@ -63,46 +62,53 @@ class Default_Featured_Image {
 	 *                              specified meta_key. This parameter has no effect if meta_key is not specified.
 	 *
 	 * @return string|array Single metadata value, or array of values
-	 * @see get_metadata() in /wp-includes/meta.php
 	 */
 	public function set_dfi_meta_key( $null, $object_id, $meta_key, $single ) {
-		// only affect thumbnails on the frontend, do allow ajax calls.
-		if ( ( is_admin() && ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) ) || '_thumbnail_id' !== $meta_key ) {
+		// Only affect thumbnails on the frontend, do allow ajax calls.
+		if ( ( is_admin() && ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) ) ) {
 			return $null;
 		}
 
-		// ignore attachments, non image attachments have icons, which get overridden otherwise.
-		$post = get_post( $object_id );
-		if ( ! empty( $post->post_type ) && 'attachment' === $post->post_type ) {
+		// Check only empty meta_key and '_thumbnail_id'.
+		if ( ! empty( $meta_key ) && '_thumbnail_id' !== $meta_key ) {
 			return $null;
 		}
 
-		$meta_type  = 'post';
-		$meta_cache = wp_cache_get( $object_id, $meta_type . '_meta' );
+		// Check if this post type supports featured images.
+		if ( ! post_type_supports( get_post_type( $object_id ), 'thumbnail' ) ) {
+			return $null; // post type does not support featured images.
+		}
 
+		// Get current Cache.
+		$meta_cache = wp_cache_get( $object_id, 'post_meta' );
+
+		/**
+		 * Empty objects probably need to be initiated.
+		 *
+		 * @see get_metadata() in /wp-includes/meta.php
+		 */
 		if ( ! $meta_cache ) {
-			$meta_cache = update_meta_cache( $meta_type, array( $object_id ) );
-			$meta_cache = $meta_cache[ $object_id ];
-		}
-
-		if ( ! $meta_key ) {
-			return $meta_cache;
-		}
-
-		if ( isset( $meta_cache[ $meta_key ] ) ) {
-			if ( $single ) {
-				return maybe_unserialize( $meta_cache[ $meta_key ][0] );
+			$meta_cache = update_meta_cache( 'post', array( $object_id ) );
+			if ( isset( $meta_cache[ $object_id ] ) ) {
+				$meta_cache = $meta_cache[ $object_id ];
 			} else {
-				return array_map( 'maybe_unserialize', $meta_cache[ $meta_key ] );
+				$meta_cache = array();
 			}
 		}
 
-		if ( $single ) {
-			// allow to set an other ID see the readme.txt for details.
-			return apply_filters( 'dfi_thumbnail_id', get_option( 'dfi_image_id' ), $object_id ); // set the default featured img ID.
-		} else {
-			return array();
+		// Is the _thumbnail_id present in cache?
+		if ( ! empty( $meta_cache['_thumbnail_id'][0] ) ) {
+			return $null; // it is present, don't check anymore.
 		}
+
+		// Get the Default Featured Image ID.
+		$dfi_id = get_option( 'dfi_image_id' );
+
+		// Set the dfi in cache.
+		$meta_cache['_thumbnail_id'][0] = apply_filters( 'dfi_thumbnail_id', $dfi_id, $object_id );
+		wp_cache_set( $object_id, $meta_cache, 'post_meta' );
+
+		return $null;
 	}
 
 	/**
