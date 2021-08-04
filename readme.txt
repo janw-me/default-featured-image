@@ -4,7 +4,7 @@ Tags: media, image
 Requires at least: 3.5
 Tested up to: 5.8
 Requires PHP: 5.6
-Stable tag: 1.7.0
+Stable tag: 1.7.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -101,6 +101,9 @@ yes you can with the filter `dfi_thumbnail_html`.
 2. The media manager will start with the current selected image
 
 == Changelog ==
+= 1.7.1 =
+* Fixed weird SVN deployment bug.
+
 = 1.7.0 =
 * moved main class to it's own file.
 * Added second class that can hold exceptions with other plugins
