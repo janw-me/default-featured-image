@@ -60,9 +60,7 @@
     -->
 
     <rule ref="WordPress">
-      <exclude name="WordPress.Files.FileName.InvalidClassFileName"/>
       <exclude name="Squiz.Commenting.FileComment.Missing"/>
-      <exclude name="WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound"/>
     </rule>
 
     <config name="testVersion" value="5.6-"/>
@@ -92,6 +90,7 @@
             <!-- Provide the prefixes to look for. -->
             <property name="prefixes" type="array">
                 <element value="dfi"/>
+                <element value="default_featured_image"/>
             </property>
         </properties>
     </rule>
