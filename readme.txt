@@ -2,7 +2,7 @@
 Contributors: janwoostendorp
 Tags: media, image
 Requires at least: 3.5
-Tested up to: 5.8
+Tested up to: 5.9.1
 Requires PHP: 5.6
 Stable tag: 1.7.1
 License: GPLv2 or later
@@ -63,7 +63,7 @@ To do that just don't nest the `if`
         //sub category
         if ( has_category( 'cats', $post_id ) ) {
           return 7; // cats img
-        } else if has_category( 'dogs', $post_id ) {
+        } else if ( has_category( 'dogs', $post_id ) ) {
           return 8; // dogs img
         }
 
