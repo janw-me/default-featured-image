@@ -108,6 +108,9 @@ The following code will exclude the post/page with ID 23.
 2. The media manager will start with the current selected image
 
 == Changelog ==
+= 1.7.2 =
+* Added extra context to a translation as suggested by [Alex Lion](https://wordpress.org/support/topic/i18n-issue-14/)
+
 = 1.7.1 =
 * Fixed weird SVN deployment bug.
 
