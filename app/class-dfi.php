@@ -122,7 +122,7 @@ final class DFI {
 		);
 		add_settings_field(
 			'dfi', // id.
-			__( 'Default featured image', 'default-featured-image' ), // setting title.
+			_x( 'Default featured image', 'Label on the settings page.', 'default-featured-image' ), // setting title.
 			array( &$this, 'settings_html' ), // display callback.
 			'media', // settings page.
 			'default' // settings section.
