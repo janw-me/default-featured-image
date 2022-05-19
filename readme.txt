@@ -4,7 +4,7 @@ Tags: media, image
 Requires at least: 3.5
 Tested up to: 5.9.1
 Requires PHP: 5.6
-Stable tag: 1.7.2
+Stable tag: 1.7.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -108,6 +108,9 @@ The following code will exclude the post/page with ID 23.
 2. The media manager will start with the current selected image
 
 == Changelog ==
+= 1.7.2.1 =
+* Development is now done in git.
+
 = 1.7.2 =
 * Added extra context to a translation as suggested by [Alex Lion](https://wordpress.org/support/topic/i18n-issue-14/)
 
