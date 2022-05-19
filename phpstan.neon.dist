@@ -1,0 +1,17 @@
+includes:
+    - vendor/szepeviktor/phpstan-wordpress/extension.neon
+parameters:
+    phpVersion: 70100
+    level: 8
+    bootstrapFiles:
+    	- .phpstan.php
+    	- vendor/php-stubs/acf-pro-stubs/acf-pro-stubs.php
+    paths:
+        - .
+    excludePaths:
+        - vendor
+        - node_modules
+        - .github
+    ignoreErrors:
+        - '#Cannot access offset int on array\|false.#'
+        - '#Function apply_filters invoked with [0-9]+ parameters, 2 required.#'
