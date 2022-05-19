@@ -12,6 +12,7 @@ parameters:
         - vendor
         - node_modules
         - .github
+        - support-examples.php
     ignoreErrors:
         - '#Cannot access offset int on array\|false.#'
         - '#Function apply_filters invoked with [0-9]+ parameters, 2 required.#'
