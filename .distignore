@@ -46,3 +46,4 @@ node_modules
 *.zip
 readme.md
 support-examples.php
+.support
