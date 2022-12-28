@@ -43,7 +43,6 @@
     "phpcompatibility/phpcompatibility-wp": "^2.1.0",
     "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
     "szepeviktor/phpstan-wordpress": "^1.0",
-    "php-stubs/acf-pro-stubs": "^5.10",
     "php-parallel-lint/php-parallel-lint": "^1.2"
   },
   "config": {

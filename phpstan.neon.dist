@@ -5,7 +5,6 @@ parameters:
     level: 8
     bootstrapFiles:
     	- .phpstan.php
-    	- vendor/php-stubs/acf-pro-stubs/acf-pro-stubs.php
     paths:
         - .
     excludePaths:
@@ -15,4 +14,3 @@ parameters:
         - support-examples.php
     ignoreErrors:
         - '#Cannot access offset int on array\|false.#'
-        - '#Function apply_filters invoked with [0-9]+ parameters, 2 required.#'

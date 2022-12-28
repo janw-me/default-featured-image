@@ -55,4 +55,4 @@ add_filter( 'do_shortcode_tag', array( 'DFI_Exceptions', 'wp_user_frontend_after
  *
  * @see https://wordpress.org/support/topic/importing-images-into-woocommerce-using-cron/
  */
-add_filter( 'dfi_thumbnail_id', array( 'DFI_Exceptions', 'wp_all_import_dfi_workaround' ), 9, 2 );
+add_filter( 'dfi_thumbnail_id', array( 'DFI_Exceptions', 'wp_all_import_dfi_workaround' ), 9, 1 );
