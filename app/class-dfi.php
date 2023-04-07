@@ -250,25 +250,28 @@ final class DFI {
 	public function show_dfi( $html, $post_id, $post_thumbnail_id, $size, $attr ) {
 		$default_thumbnail_id = get_option( 'dfi_image_id' ); // select the default thumb.
 
-		// if an image is set return that image.
+		// If an image is set return that image.
 		if ( (int) $default_thumbnail_id !== (int) $post_thumbnail_id ) {
 			return $html;
 		}
 
+		// Attributes can be a query string, parse that.
+		if ( is_string( $attr ) ) {
+			wp_parse_str( $attr, $attr );
+		}
+
 		if ( isset( $attr['class'] ) ) {
+			// There already are classes, we trust those.
 			$attr['class'] .= ' default-featured-img';
 		} else {
-			$size_class = $size;
-			if ( is_array( $size_class ) ) {
-				$size_class = 'size-' . implode( 'x', $size_class );
+			// No classes in the attributes, try to get them form the HTML.
+			$img = new \WP_HTML_Tag_Processor( $html );
+			if ( $img->next_tag() ) {
+				$attr['class'] = trim( $img->get_attribute( 'class' ) . ' default-featured-img' );
 			}
-			// attachment-$size is a default class `wp_get_attachment_image` would otherwise add. It won't add it if there are classes already there.
-			$attr = array( 'class' => "attachment-{$size_class} default-featured-img" );
 		}
 
 		$html = wp_get_attachment_image( $default_thumbnail_id, $size, false, $attr );
-		$html = apply_filters( 'dfi_thumbnail_html', $html, $post_id, $default_thumbnail_id, $size, $attr );
-
-		return $html;
+		return apply_filters( 'dfi_thumbnail_html', $html, $post_id, $default_thumbnail_id, $size, $attr );
 	}
 }

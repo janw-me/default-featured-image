@@ -1,16 +1,12 @@
 includes:
     - vendor/szepeviktor/phpstan-wordpress/extension.neon
 parameters:
-    phpVersion: 70100
+    phpVersion: 70400
     level: 8
     bootstrapFiles:
     	- .phpstan.php
     paths:
-        - .
-    excludePaths:
-        - vendor
-        - node_modules
-        - .github
-        - support-examples.php
+        - app
+        - set-default-featured-image.php
     ignoreErrors:
         - '#Cannot access offset int on array\|false.#'

@@ -3,8 +3,8 @@ Contributors: janwoostendorp
 Tags: media, image
 Requires at least: 3.5
 Tested up to: 6.2
-Requires PHP: 5.6
-Stable tag: 1.7.2.1
+Requires PHP: 7.4
+Stable tag: 1.7.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -108,6 +108,10 @@ The following code will exclude the post/page with ID 23.
 2. The media manager will start with the current selected image
 
 == Changelog ==
+= 1.7.3 =
+* PHP 7.4 and WP 6.2 are now required. This is to use the new [WP_HTML_Tag_Processor](https://make.wordpress.org/core/2023/03/07/introducing-the-html-api-in-wordpress-6-2/) functions.
+* Fixed a bug where classes were overridden.
+
 = 1.7.2.1 =
 * Development is now done in git.
 
