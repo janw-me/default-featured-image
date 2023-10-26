@@ -9,16 +9,21 @@
  */
 
  /**
-  * As a default set the DFI, this will be overwritten if a DFI is set.
+  * As a default set the DFI, this will be overwritten if a normal Thumbnail is set.
   *
   * @param array $data Post data before it's filled.
+  * @param array $blog Current blog details.
+  *
+  * @see Rudr_Simple_WP_Crosspost::add_featured_image
   */
-function dfi_category( $data ) {
+function dfi_category( $data, $blog ) {
 	$dfi_id = get_option( 'dfi_image_id' );
-	if ( ! empty( $dfi_id ) ) {
-		$data[ 'featured_image' ] = dfi_id;
+	if ( empty( $dfi_id ) ) {
+		return $data; // No DFI set
 	}
 
-	return $data;
+	$new_featured_image = Rudr_Simple_WP_Crosspost::maybe_crosspost_image( $dfi_id, $blog );
+
+	$data[ 'featured_image' ] = $new_featured_image[ 'id' ];
 }
-add_filter( 'rudr_swc_pre_crosspost_post_data', 'dfi_category', 10, 1 );
+add_filter( 'rudr_swc_pre_crosspost_post_data', 'dfi_category', 10, 2 );
