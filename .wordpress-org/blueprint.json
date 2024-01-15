@@ -18,6 +18,23 @@
             "password": "password"
         },
         {
+            "step": "installPlugin",
+            "pluginZipFile": {
+                "resource": "wordpress.org/plugins",
+                "slug": "default-featured-image"
+            },
+            "options": {
+                "activate": true
+            }
+        },
+        {
+            "step": "installTheme",
+            "themeZipFile": {
+                "resource": "wordpress.org/themes",
+                "slug": "twentytwentytwo"
+            }
+        },
+        {
             "step": "importFile",
             "file": {
                 "resource": "url",
