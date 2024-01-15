@@ -38,7 +38,7 @@
             "step": "importFile",
             "file": {
                 "resource": "url",
-                "url": "https://raw.githubusercontent.com/janw-me/default-featured-image/blueprint/.wordpress-org/blueprint.xml"
+                "url": "https://raw.githubusercontent.com/janw-me/default-featured-image/main/.wordpress-org/blueprints/blueprint.xml"
             }
         },
         {
@@ -46,7 +46,7 @@
             "path":"/wordpress/wp-content/site-cleanup.php",
             "data":{
                "resource":"url",
-               "url":"https://raw.githubusercontent.com/janw-me/default-featured-image/blueprint/.wordpress-org/blueprint/site-cleanup.php"
+               "url":"https://raw.githubusercontent.com/janw-me/default-featured-image/main/.wordpress-org/blueprints/site-cleanup.php"
             }
          },
         {
