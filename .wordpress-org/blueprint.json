@@ -16,6 +16,13 @@
             "step": "login",
             "username": "admin",
             "password": "password"
+        },
+        {
+            "step": "importFile",
+            "file": {
+                "resource": "url",
+                "url": "https://raw.githubusercontent.com/janw-me/default-featured-image/blueprint/.wordpress-org/blueprint.xml"
+            }
         }
     ]
 }
