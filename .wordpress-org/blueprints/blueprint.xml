@@ -16,7 +16,7 @@
 <!-- 7. WordPress will then import each of the posts, pages, comments, categories, etc. -->
 <!--    contained in this file into your site. -->
 
-	<!-- generator="WordPress/6.4.2" created="2024-01-15 18:12" -->
+	<!-- generator="WordPress/6.4.2" created="2024-01-15 19:04" -->
 <rss version="2.0"
 	xmlns:excerpt="http://wordpress.org/export/1.2/excerpt/"
 	xmlns:content="http://purl.org/rss/1.0/modules/content/"
@@ -27,15 +27,16 @@
 
 <channel>
 	<title>Default Featured Image Demo Site</title>
-	<link>https://playground.wordpress.net/scope:0.6701400723877091</link>
+	<link>https://playground.wordpress.net/</link>
 	<description></description>
-	<pubDate>Mon, 15 Jan 2024 18:12:47 +0000</pubDate>
+	<pubDate>Mon, 15 Jan 2024 19:04:58 +0000</pubDate>
 	<language>en-US</language>
 	<wp:wxr_version>1.2</wp:wxr_version>
-	<wp:base_site_url>https://playground.wordpress.net/scope:0.6701400723877091</wp:base_site_url>
-	<wp:base_blog_url>https://playground.wordpress.net/scope:0.6701400723877091</wp:base_blog_url>
+	<wp:base_site_url>https://playground.wordpress.net/</wp:base_site_url>
+	<wp:base_blog_url>https://playground.wordpress.net/</wp:base_blog_url>
 
 		<wp:author><wp:author_id>2</wp:author_id><wp:author_login><![CDATA[1]]></wp:author_login><wp:author_email><![CDATA[]]></wp:author_email><wp:author_display_name><![CDATA[1]]></wp:author_display_name><wp:author_first_name><![CDATA[]]></wp:author_first_name><wp:author_last_name><![CDATA[]]></wp:author_last_name></wp:author>
+	<wp:author><wp:author_id>1</wp:author_id><wp:author_login><![CDATA[admin]]></wp:author_login><wp:author_email><![CDATA[admin@localhost.com]]></wp:author_email><wp:author_display_name><![CDATA[admin]]></wp:author_display_name><wp:author_first_name><![CDATA[]]></wp:author_first_name><wp:author_last_name><![CDATA[]]></wp:author_last_name></wp:author>
 
 		<wp:category>
 		<wp:term_id>1</wp:term_id>
@@ -69,10 +70,10 @@
 
 		<item>
 		<title><![CDATA[Custom Styles]]></title>
-		<link>https://playground.wordpress.net/scope:0.6701400723877091/?p=8</link>
+		<link>https://playground.wordpress.net/?p=8</link>
 		<pubDate>Sun, 14 Jan 2024 15:46:50 +0000</pubDate>
 		<dc:creator><![CDATA[1]]></dc:creator>
-		<guid isPermaLink="false">https://playground.wordpress.net/scope:0.8989400528056321/?p=4</guid>
+		<guid isPermaLink="false">https://playground.wordpress.net/?p=4</guid>
 		<description></description>
 		<content:encoded><![CDATA[{"version": 2, "isGlobalStylesUserThemeJSON": true }]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
@@ -94,10 +95,10 @@
 						</item>
 					<item>
 		<title><![CDATA[Header (Dark, small)]]></title>
-		<link>https://playground.wordpress.net/scope:0.6701400723877091/?p=9</link>
+		<link>https://playground.wordpress.net/?p=9</link>
 		<pubDate>Sun, 14 Jan 2024 15:47:53 +0000</pubDate>
 		<dc:creator><![CDATA[1]]></dc:creator>
-		<guid isPermaLink="false">https://playground.wordpress.net/scope:0.8989400528056321/?p=5</guid>
+		<guid isPermaLink="false">https://playground.wordpress.net/?p=5</guid>
 		<description></description>
 		<content:encoded><![CDATA[<!-- wp:group {"align":"full","style":{"elements":{"link":{"color":{"text":"var:preset|color|background"}}},"spacing":{"padding":{"top":"0px","bottom":"0px"}}},"backgroundColor":"foreground","textColor":"background","layout":{"inherit":true,"type":"constrained"}} -->
 <div class="wp-block-group alignfull has-background-color has-foreground-background-color has-text-color has-background has-link-color" style="padding-top:0px;padding-bottom:0px"><!-- wp:template-part {"slug":"header","theme":"twentytwentytwo","tagName":"header","align":"wide"} /--></div>
@@ -130,12 +131,12 @@
 							</item>
 					<item>
 		<title><![CDATA[Header]]></title>
-		<link>https://playground.wordpress.net/scope:0.6701400723877091/?p=10</link>
+		<link>https://playground.wordpress.net/?p=10</link>
 		<pubDate>Sun, 14 Jan 2024 15:49:47 +0000</pubDate>
 		<dc:creator><![CDATA[1]]></dc:creator>
-		<guid isPermaLink="false">https://playground.wordpress.net/scope:0.8989400528056321/?p=7</guid>
+		<guid isPermaLink="false">https://playground.wordpress.net/?p=7</guid>
 		<description></description>
-		<content:encoded><![CDATA[<!-- wp:group {"layout":{"inherit":true}} -->
+		<content:encoded><![CDATA[<!-- wp:group {"layout":{"inherit":true,"type":"constrained"}} -->
 <div class="wp-block-group"><!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"bottom":"var(\u002d\u002dwp\u002d\u002dcustom\u002d\u002dspacing\u002d\u002dlarge, 8rem)","top":"var(\u002d\u002dwp\u002d\u002dcustom\u002d\u002dspacing\u002d\u002dsmall, 1.25rem)"}}},"layout":{"type":"flex","justifyContent":"space-between"}} -->
 <div class="wp-block-group alignwide" style="padding-top:var(--wp--custom--spacing--small, 1.25rem);padding-bottom:var(--wp--custom--spacing--large, 8rem)"><!-- wp:group {"layout":{"type":"flex"}} -->
 <div class="wp-block-group"><!-- wp:site-logo {"width":64} /-->
@@ -143,17 +144,15 @@
 <!-- wp:site-title /--></div>
 <!-- /wp:group -->
 
-<!-- wp:navigation {"layout":{"type":"flex","setCascadingProperties":true,"justifyContent":"right"}} -->
-<!-- wp:page-list {"isNavigationChild":true,"showSubmenuIcon":true,"openSubmenusOnClick":false} /-->
-<!-- /wp:navigation --></div>
+<!-- wp:navigation {"ref":49,"layout":{"type":"flex","setCascadingProperties":true,"justifyContent":"right"}} /--></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
 		<wp:post_id>10</wp:post_id>
 		<wp:post_date><![CDATA[2024-01-14 15:49:47]]></wp:post_date>
 		<wp:post_date_gmt><![CDATA[2024-01-14 15:49:47]]></wp:post_date_gmt>
-		<wp:post_modified><![CDATA[2024-01-14 15:49:47]]></wp:post_modified>
-		<wp:post_modified_gmt><![CDATA[2024-01-14 15:49:47]]></wp:post_modified_gmt>
+		<wp:post_modified><![CDATA[2024-01-15 19:02:15]]></wp:post_modified>
+		<wp:post_modified_gmt><![CDATA[2024-01-15 19:02:15]]></wp:post_modified_gmt>
 		<wp:comment_status><![CDATA[closed]]></wp:comment_status>
 		<wp:ping_status><![CDATA[closed]]></wp:ping_status>
 		<wp:post_name><![CDATA[header]]></wp:post_name>
@@ -172,10 +171,10 @@
 							</item>
 					<item>
 		<title><![CDATA[Brown Fox]]></title>
-		<link>https://playground.wordpress.net/scope:0.6701400723877091/?p=11</link>
+		<link>https://playground.wordpress.net/?p=11</link>
 		<pubDate>Sun, 14 Jan 2024 15:52:51 +0000</pubDate>
 		<dc:creator><![CDATA[1]]></dc:creator>
-		<guid isPermaLink="false">https://playground.wordpress.net/scope:0.8989400528056321/?p=10</guid>
+		<guid isPermaLink="false">https://playground.wordpress.net/?p=10</guid>
 		<description></description>
 		<content:encoded><![CDATA[<!-- wp:paragraph -->
 <p>(c) <a href="https://unsplash.com/@rayhennessy">Ray Hennessy</a></p>
@@ -215,10 +214,10 @@
 							</item>
 					<item>
 		<title><![CDATA[Chicken]]></title>
-		<link>https://playground.wordpress.net/scope:0.6701400723877091/?p=13</link>
+		<link>https://playground.wordpress.net/?p=13</link>
 		<pubDate>Sun, 14 Jan 2024 15:54:39 +0000</pubDate>
 		<dc:creator><![CDATA[1]]></dc:creator>
-		<guid isPermaLink="false">https://playground.wordpress.net/scope:0.8989400528056321/?p=13</guid>
+		<guid isPermaLink="false">https://playground.wordpress.net/?p=13</guid>
 		<description></description>
 		<content:encoded><![CDATA[<!-- wp:paragraph -->
 <p>(C) <a href="https://unsplash.com/@tumbao1949">James Wainscoat</a></p>
@@ -258,10 +257,10 @@
 							</item>
 					<item>
 		<title><![CDATA[Butterfly]]></title>
-		<link>https://playground.wordpress.net/scope:0.6701400723877091/?p=17</link>
+		<link>https://playground.wordpress.net/?p=17</link>
 		<pubDate>Sun, 14 Jan 2024 15:56:30 +0000</pubDate>
 		<dc:creator><![CDATA[1]]></dc:creator>
-		<guid isPermaLink="false">https://playground.wordpress.net/scope:0.8989400528056321/?p=17</guid>
+		<guid isPermaLink="false">https://playground.wordpress.net/?p=17</guid>
 		<description></description>
 		<content:encoded><![CDATA[<!-- wp:paragraph -->
 <p>(c)<a href="https://unsplash.com/@davidclode">David Clode</a></p>
@@ -301,12 +300,18 @@
 							</item>
 					<item>
 		<title><![CDATA[Blog Home]]></title>
-		<link>https://playground.wordpress.net/scope:0.6701400723877091/?p=19</link>
+		<link>https://playground.wordpress.net/?p=19</link>
 		<pubDate>Sun, 14 Jan 2024 15:56:34 +0000</pubDate>
 		<dc:creator><![CDATA[1]]></dc:creator>
-		<guid isPermaLink="false">https://playground.wordpress.net/scope:0.8989400528056321/?p=19</guid>
+		<guid isPermaLink="false">https://playground.wordpress.net/?p=19</guid>
 		<description></description>
 		<content:encoded><![CDATA[<!-- wp:template-part {"slug":"header-small-dark","theme":"twentytwentytwo","tagName":"header"} /-->
+
+<!-- wp:group {"backgroundColor":"secondary","layout":{"type":"constrained"}} -->
+<div class="wp-block-group has-secondary-background-color has-background"><!-- wp:paragraph -->
+<p>Below is a demo of 7 posts, 5 have an featured image set. 2 don't. <br>These 2 have a fallback image set.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
 
 <!-- wp:query {"queryId":54,"query":{"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","sticky":"","perPage":10,"inherit":true},"align":"wide","layout":{"contentSize":null,"type":"constrained"}} -->
 <div class="wp-block-query alignwide"><!-- wp:post-template {"align":"wide","layout":{"type":"grid","columnCount":3}} -->
@@ -337,8 +342,8 @@
 		<wp:post_id>19</wp:post_id>
 		<wp:post_date><![CDATA[2024-01-14 15:56:34]]></wp:post_date>
 		<wp:post_date_gmt><![CDATA[2024-01-14 15:56:34]]></wp:post_date_gmt>
-		<wp:post_modified><![CDATA[2024-01-14 15:56:34]]></wp:post_modified>
-		<wp:post_modified_gmt><![CDATA[2024-01-14 15:56:34]]></wp:post_modified_gmt>
+		<wp:post_modified><![CDATA[2024-01-15 19:04:50]]></wp:post_modified>
+		<wp:post_modified_gmt><![CDATA[2024-01-15 19:04:50]]></wp:post_modified_gmt>
 		<wp:comment_status><![CDATA[closed]]></wp:comment_status>
 		<wp:ping_status><![CDATA[closed]]></wp:ping_status>
 		<wp:post_name><![CDATA[home]]></wp:post_name>
@@ -356,10 +361,10 @@
 							</item>
 					<item>
 		<title><![CDATA[Yeti]]></title>
-		<link>https://playground.wordpress.net/scope:0.6701400723877091/?p=24</link>
+		<link>https://playground.wordpress.net/?p=24</link>
 		<pubDate>Sun, 14 Jan 2024 15:55:06 +0000</pubDate>
 		<dc:creator><![CDATA[1]]></dc:creator>
-		<guid isPermaLink="false">https://playground.wordpress.net/scope:0.8989400528056321/?p=24</guid>
+		<guid isPermaLink="false">https://playground.wordpress.net/?p=24</guid>
 		<description></description>
 		<content:encoded><![CDATA[<!-- wp:paragraph -->
 <p>No picture</p>
@@ -399,10 +404,10 @@
 							</item>
 					<item>
 		<title><![CDATA[Nessi]]></title>
-		<link>https://playground.wordpress.net/scope:0.6701400723877091/?p=26</link>
+		<link>https://playground.wordpress.net/?p=26</link>
 		<pubDate>Sun, 14 Jan 2024 16:00:30 +0000</pubDate>
 		<dc:creator><![CDATA[1]]></dc:creator>
-		<guid isPermaLink="false">https://playground.wordpress.net/scope:0.8989400528056321/?p=26</guid>
+		<guid isPermaLink="false">https://playground.wordpress.net/?p=26</guid>
 		<description></description>
 		<content:encoded><![CDATA[<!-- wp:paragraph -->
 <p>No picture</p>
@@ -434,10 +439,10 @@
 							</item>
 					<item>
 		<title><![CDATA[Tucan]]></title>
-		<link>https://playground.wordpress.net/scope:0.6701400723877091/?p=28</link>
+		<link>https://playground.wordpress.net/?p=28</link>
 		<pubDate>Sun, 14 Jan 2024 16:01:55 +0000</pubDate>
 		<dc:creator><![CDATA[1]]></dc:creator>
-		<guid isPermaLink="false">https://playground.wordpress.net/scope:0.8989400528056321/?p=28</guid>
+		<guid isPermaLink="false">https://playground.wordpress.net/?p=28</guid>
 		<description></description>
 		<content:encoded><![CDATA[<!-- wp:paragraph -->
 <p>(C) <a href="https://unsplash.com/@lukassouza">Lukas Souza</a></p>
@@ -477,10 +482,10 @@
 							</item>
 					<item>
 		<title><![CDATA[Iguana]]></title>
-		<link>https://playground.wordpress.net/scope:0.6701400723877091/?p=30</link>
+		<link>https://playground.wordpress.net/?p=30</link>
 		<pubDate>Sun, 14 Jan 2024 16:04:52 +0000</pubDate>
 		<dc:creator><![CDATA[1]]></dc:creator>
-		<guid isPermaLink="false">https://playground.wordpress.net/scope:0.8989400528056321/?p=30</guid>
+		<guid isPermaLink="false">https://playground.wordpress.net/?p=30</guid>
 		<description></description>
 		<content:encoded><![CDATA[<!-- wp:paragraph -->
 <p>(C) <a href="https://unsplash.com/@selinsahin">Selin Şahin</a></p>
@@ -520,7 +525,7 @@
 							</item>
 					<item>
 		<title><![CDATA[selin-sahin-5DB3cYe7Nxk-unsplash]]></title>
-		<link>https://playground.wordpress.net/scope:0.6701400723877091/?attachment_id=32</link>
+		<link>https://playground.wordpress.net/?attachment_id=32</link>
 		<pubDate>Sun, 14 Jan 2024 16:18:58 +0000</pubDate>
 		<dc:creator><![CDATA[1]]></dc:creator>
 		<guid isPermaLink="false">https://raw.githubusercontent.com/janw-me/default-featured-image/main/.wordpress-org/blueprints/selin-sahin-5DB3cYe7Nxk-unsplash.jpg</guid>
@@ -553,7 +558,7 @@
 							</item>
 					<item>
 		<title><![CDATA[lukas-souza-vjFC9OjrOtA-unsplash]]></title>
-		<link>https://playground.wordpress.net/scope:0.6701400723877091/?attachment_id=35</link>
+		<link>https://playground.wordpress.net/?attachment_id=35</link>
 		<pubDate>Sun, 14 Jan 2024 16:21:24 +0000</pubDate>
 		<dc:creator><![CDATA[1]]></dc:creator>
 		<guid isPermaLink="false">https://raw.githubusercontent.com/janw-me/default-featured-image/main/.wordpress-org/blueprints/lukas-souza-vjFC9OjrOtA-unsplash.jpg</guid>
@@ -586,7 +591,7 @@
 							</item>
 					<item>
 		<title><![CDATA[david-clode-dHkU0Ep-9Z0-unsplash]]></title>
-		<link>https://playground.wordpress.net/scope:0.6701400723877091/?attachment_id=40</link>
+		<link>https://playground.wordpress.net/?attachment_id=40</link>
 		<pubDate>Sun, 14 Jan 2024 16:24:18 +0000</pubDate>
 		<dc:creator><![CDATA[1]]></dc:creator>
 		<guid isPermaLink="false">https://raw.githubusercontent.com/janw-me/default-featured-image/main/.wordpress-org/blueprints/david-clode-dHkU0Ep-9Z0-unsplash.jpg</guid>
@@ -619,7 +624,7 @@
 							</item>
 					<item>
 		<title><![CDATA[james-wainscoat-yEW23jxVsNI-unsplash]]></title>
-		<link>https://playground.wordpress.net/scope:0.6701400723877091/?attachment_id=42</link>
+		<link>https://playground.wordpress.net/?attachment_id=42</link>
 		<pubDate>Sun, 14 Jan 2024 16:24:38 +0000</pubDate>
 		<dc:creator><![CDATA[1]]></dc:creator>
 		<guid isPermaLink="false">https://raw.githubusercontent.com/janw-me/default-featured-image/main/.wordpress-org/blueprints/james-wainscoat-yEW23jxVsNI-unsplash.jpg</guid>
@@ -652,7 +657,7 @@
 							</item>
 					<item>
 		<title><![CDATA[ray-hennessy-xUUZcpQlqpM-unsplash]]></title>
-		<link>https://playground.wordpress.net/scope:0.6701400723877091/?attachment_id=44</link>
+		<link>https://playground.wordpress.net/?attachment_id=44</link>
 		<pubDate>Sun, 14 Jan 2024 16:25:18 +0000</pubDate>
 		<dc:creator><![CDATA[1]]></dc:creator>
 		<guid isPermaLink="false">https://raw.githubusercontent.com/janw-me/default-featured-image/main/.wordpress-org/blueprints/ray-hennessy-xUUZcpQlqpM-unsplash.jpg</guid>
@@ -685,7 +690,7 @@
 							</item>
 					<item>
 		<title><![CDATA[dfi]]></title>
-		<link>https://playground.wordpress.net/scope:0.6701400723877091/?attachment_id=48</link>
+		<link>https://playground.wordpress.net/?attachment_id=48</link>
 		<pubDate>Sun, 14 Jan 2024 16:33:02 +0000</pubDate>
 		<dc:creator><![CDATA[1]]></dc:creator>
 		<guid isPermaLink="false">https://raw.githubusercontent.com/janw-me/default-featured-image/main/.wordpress-org/blueprints/dfi.png</guid>
@@ -716,5 +721,33 @@
 		<wp:meta_value><![CDATA[a:6:{s:5:"width";i:318;s:6:"height";i:318;s:4:"file";s:15:"2024/01/dfi.png";s:8:"filesize";i:14057;s:5:"sizes";a:2:{s:6:"medium";a:5:{s:4:"file";s:15:"dfi-300x300.png";s:5:"width";i:300;s:6:"height";i:300;s:9:"mime-type";s:9:"image/png";s:8:"filesize";i:13684;}s:9:"thumbnail";a:5:{s:4:"file";s:15:"dfi-150x150.png";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:9:"image/png";s:8:"filesize";i:4723;}}s:10:"image_meta";a:12:{s:8:"aperture";s:1:"0";s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";s:1:"0";s:9:"copyright";s:0:"";s:12:"focal_length";s:1:"0";s:3:"iso";s:1:"0";s:13:"shutter_speed";s:1:"0";s:5:"title";s:0:"";s:11:"orientation";s:1:"0";s:8:"keywords";a:0:{}}}]]></wp:meta_value>
 		</wp:postmeta>
 							</item>
+					<item>
+		<title><![CDATA[Navigation]]></title>
+		<link>https://playground.wordpress.net/?p=49</link>
+		<pubDate>Mon, 15 Jan 2024 18:59:20 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">https://playground.wordpress.net/?p=49</guid>
+		<description></description>
+		<content:encoded><![CDATA[<!-- wp:navigation-link {"label":"Admin setting","url":"/wp-admin/options-media.php","kind":"custom"} /-->
+
+<!-- wp:navigation-link {"label":"Media","url":"/wp-admin/upload.php","kind":"custom"} /-->
+
+<!-- wp:navigation-link {"label":"Post List","url":"/wp-admin/edit.php","kind":"custom"} /-->]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>49</wp:post_id>
+		<wp:post_date><![CDATA[2024-01-15 18:59:20]]></wp:post_date>
+		<wp:post_date_gmt><![CDATA[2024-01-15 18:59:20]]></wp:post_date_gmt>
+		<wp:post_modified><![CDATA[2024-01-15 19:03:04]]></wp:post_modified>
+		<wp:post_modified_gmt><![CDATA[2024-01-15 19:03:04]]></wp:post_modified_gmt>
+		<wp:comment_status><![CDATA[closed]]></wp:comment_status>
+		<wp:ping_status><![CDATA[closed]]></wp:ping_status>
+		<wp:post_name><![CDATA[navigation]]></wp:post_name>
+		<wp:status><![CDATA[publish]]></wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type><![CDATA[wp_navigation]]></wp:post_type>
+		<wp:post_password><![CDATA[]]></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+														</item>
 				</channel>
 </rss>
