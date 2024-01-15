@@ -42,8 +42,16 @@
             }
         },
         {
+            "step":"writeFile",
+            "path":"/wordpress/wp-content/site-cleanup.php",
+            "data":{
+               "resource":"url",
+               "url":"https://raw.githubusercontent.com/janw-me/default-featured-image/blueprint/.wordpress-org/blueprint/site-cleanup.php"
+            }
+         },
+        {
             "step": "runPHP",
-            "code": "<?php require_once '/wordpress/wp-load.php'; require_once( ABSPATH . 'wp-admin/includes/file.php' ); wp_insert_post(array('post_title'    => 'My post'));"
+            "code": "<?php require_once '/wordpress/wp-load.php'; require_once '/wordpress/wp-content/site-cleanup.php';"
         }
     ]
 }
