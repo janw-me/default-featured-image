@@ -13,7 +13,7 @@ function dfi_category_random( $dfi_id, $post_id ) {
             7,
             8,
         );
-        return $random_cats[ array_rand( $random_cats ) ]
+        return $random_cats[ array_rand( $random_cats ) ];
     }
     // Set a different image for posts that have the 'dogs' category set.
     if ( has_category( 'dogs', $post_id ) ) {
@@ -21,7 +21,7 @@ function dfi_category_random( $dfi_id, $post_id ) {
             10,
             14,
         );
-        return $random_dogs[ array_rand( $random_dogs ) ]
+        return $random_dogs[ array_rand( $random_dogs ) ];
     }
 
     return $dfi_id; // the original featured image id.
