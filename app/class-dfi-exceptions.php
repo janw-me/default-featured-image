@@ -53,4 +53,15 @@ class DFI_Exceptions {
 			return $dfi_id;
 		}
 	}
+
+	/**
+	 * When WPML translates a post it will try to get the featured image, but there is none, so it gets the DFI.
+	 * This will prevent that from happening.
+	 *
+	 * @return void
+	 */
+	public static function wpml_dont_save_dfi_on_translate() {
+		$dfi = DFI::instance();
+		remove_filter( 'get_post_metadata', array( $dfi, 'set_dfi_meta_key' ), 10 );
+	}
 }
