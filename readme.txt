@@ -2,7 +2,7 @@
 Contributors: janwoostendorp
 Tags: media, image
 Requires at least: 6.2
-Tested up to: 6.4
+Tested up to: 6.5
 Requires PHP: 7.4
 Stable tag: 1.7.3
 License: GPLv2 or later
