@@ -1,4 +1,4 @@
-=== Plugin Name ===
+=== Default Featured Image ===
 Contributors: janwoostendorp
 Tags: media, image
 Requires at least: 6.2
