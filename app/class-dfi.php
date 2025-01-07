@@ -109,23 +109,36 @@ final class DFI {
 		return $null;
 	}
 
+    public function register_media_setting()
+    {
+        register_setting(
+            'media', // settings page.
+            'dfi_image_id', // option name.
+            array(
+                'sanitize_callback' => array( &$this, 'input_validation' ),
+                'show_in_rest' => array(
+                    'schema' => array(
+                        'type' => 'integer',
+                        'minimum' => 1,
+                    )
+                ),
+            )
+        );
+    }
+
 	/**
 	 * Register the setting on the media settings page.
 	 *
 	 * @return void
 	 */
 	public function media_setting() {
-		register_setting(
-			'media', // settings page.
-			'dfi_image_id', // option name.
-			array( &$this, 'input_validation' ) // validation callback.
-		);
+        $this->register_media_setting();
 		add_settings_field(
 			'dfi', // id.
 			_x( 'Default featured image', 'Label on the settings page.', 'default-featured-image' ), // setting title.
 			array( &$this, 'settings_html' ), // display callback.
 			'media', // settings page.
-			'default' // settings section.
+			'default', // settings section.
 		);
 	}
 
@@ -187,7 +200,7 @@ final class DFI {
 			array(
 				'manager_title'  => __( 'Select default featured image', 'default-featured-image' ),
 				'manager_button' => __( 'Set default featured image', 'default-featured-image' ),
-			)
+			),
 		);
 	}
 
