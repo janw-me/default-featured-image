@@ -26,6 +26,7 @@ $dfi = DFI::instance();
 
 // add the settings field to the media page.
 add_action( 'admin_init', array( $dfi, 'media_setting' ) );
+add_action( 'rest_api_init', array( $dfi, 'register_media_setting' ) );
 // enqueue the js.
 add_action( 'admin_print_scripts-options-media.php', array( $dfi, 'admin_scripts' ) );
 // get the preview image ajax call.
