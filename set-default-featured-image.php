@@ -32,7 +32,7 @@ add_action( 'admin_print_scripts-options-media.php', array( $dfi, 'admin_scripts
 // get the preview image ajax call.
 add_action( 'wp_ajax_dfi_change_preview', array( $dfi, 'ajax_wrapper' ) );
 // set dfi meta key on every occasion.
-add_filter( 'get_post_metadata', array( $dfi, 'set_dfi_meta_key' ), 10, 4 );
+add_filter( 'get_post_metadata', array( $dfi, 'set_dfi_meta_key' ), 10, 3 );
 // display a default featured image.
 add_filter( 'post_thumbnail_html', array( $dfi, 'show_dfi' ), 20, 5 );
 // add a link on the plugin page to the setting.

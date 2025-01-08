@@ -10,17 +10,17 @@ class DFI_Exceptions {
 	/**
 	 * Exclude dfi from shortcode: wpuf_edit
 	 *
-	 * @param mixed  $false unused, just pass along.
+	 * @param mixed  $_false unused, just pass along.
 	 * @param string $tag The shortcode.
 	 *
 	 * @return mixed
 	 */
-	public static function wp_user_frontend_pre( $false, $tag ) {
+	public static function wp_user_frontend_pre( $_false, $tag ) {
 		if ( 'wpuf_edit' === $tag ) {
 			add_filter( 'dfi_thumbnail_id', '__return_null' );
 		}
 
-		return $false;
+		return $_false;
 	}
 
 	/**
