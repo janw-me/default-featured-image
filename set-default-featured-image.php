@@ -55,10 +55,3 @@ add_filter( 'do_shortcode_tag', array( 'DFI_Exceptions', 'wp_user_frontend_after
  * @see https://wordpress.org/support/topic/importing-images-into-woocommerce-using-cron/
  */
 add_filter( 'dfi_thumbnail_id', array( 'DFI_Exceptions', 'wp_all_import_dfi_workaround' ), 9 );
-
-/**
- * Exception: https://wpml.org/
- *
- * @see https://wordpress.org/support/topic/wpml-compatibility-281/
- */
-add_filter( 'dfi_thumbnail_id', array( 'DFI_Exceptions', 'wpml_dont_save_dfi_on_translate' ), 9 );
