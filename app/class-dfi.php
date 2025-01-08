@@ -109,22 +109,24 @@ final class DFI {
 		return $null;
 	}
 
-    public function register_media_setting()
-    {
-        register_setting(
-            'media', // settings page.
-            'dfi_image_id', // option name.
-            array(
-                'sanitize_callback' => array( &$this, 'input_validation' ),
-                'show_in_rest' => array(
-                    'schema' => array(
-                        'type' => 'integer',
-                        'minimum' => 1,
-                    )
-                ),
-            )
-        );
-    }
+	/**
+	 * Register the DFI option.
+	 */
+	public function register_media_setting() {
+		register_setting(
+			'media', // settings page.
+			'dfi_image_id', // option name.
+			array(
+				'sanitize_callback' => array( &$this, 'input_validation' ),
+				'show_in_rest'      => array(
+					'schema' => array(
+						'type'    => 'integer',
+						'minimum' => 1,
+					),
+				),
+			)
+		);
+	}
 
 	/**
 	 * Register the setting on the media settings page.
@@ -132,7 +134,7 @@ final class DFI {
 	 * @return void
 	 */
 	public function media_setting() {
-        $this->register_media_setting();
+		$this->register_media_setting();
 		add_settings_field(
 			'dfi', // id.
 			_x( 'Default featured image', 'Label on the settings page.', 'default-featured-image' ), // setting title.
