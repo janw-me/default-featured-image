@@ -6,9 +6,9 @@
  */
 function dfi_load() {
 
-	defined('DFI_VERSION') || define( 'DFI_VERSION', '1.8.1' );
-	defined('DFI_DIR') || define( 'DFI_DIR', plugin_dir_path( __FILE__ ) );
-	defined('DFI_URL') || define( 'DFI_URL', plugin_dir_url( __FILE__ ) );
+	defined( 'DFI_VERSION' ) || define( 'DFI_VERSION', '1.8.1' );
+	defined( 'DFI_DIR' ) || define( 'DFI_DIR', plugin_dir_path( __FILE__ ) );
+	defined( 'DFI_URL' ) || define( 'DFI_URL', plugin_dir_url( __FILE__ ) );
 
 	require_once DFI_DIR . 'app' . DIRECTORY_SEPARATOR . 'class-dfi.php';
 	require_once DFI_DIR . 'app' . DIRECTORY_SEPARATOR . 'class-dfi-exceptions.php';
@@ -30,8 +30,6 @@ function dfi_load() {
 	add_filter( 'plugin_action_links_default-featured-image/set-default-featured-image.php', array( $dfi, 'add_settings_link' ) );
 	// add L10n.
 	add_action( 'init', array( $dfi, 'load_plugin_textdomain' ) );
-	// remove setting on removal.
-	register_uninstall_hook( __FILE__, array( DFI::class, 'uninstall' ) );
 
 	/**
 	 * Exception: https://wordpress.org/plugins/wp-user-frontend/

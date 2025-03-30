@@ -7,6 +7,8 @@
 
     <file>./app</file>
     <file>./set-default-featured-image.php</file>
+    <file>./dfi.php</file>
+    <file>./uninstall.php</file>
 
     <!-- Only check PHP files. -->
     <arg name="extensions" value="php"/>

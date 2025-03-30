@@ -31,15 +31,6 @@ final class DFI {
 	}
 
 	/**
-	 * Uninstall
-	 *
-	 * @return void
-	 */
-	public static function uninstall() {
-		delete_option( 'dfi_image_id' );
-	}
-
-	/**
 	 * L10n
 	 *
 	 * @return void
