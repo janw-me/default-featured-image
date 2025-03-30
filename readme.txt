@@ -4,7 +4,7 @@ Tags: media, image
 Requires at least: 6.2
 Tested up to: 6.7.2
 Requires PHP: 7.4
-Stable tag: 1.8.1
+Stable tag: 1.8.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -108,6 +108,9 @@ The following code will exclude the post/page with ID 23.
 2. The media manager will start with the current selected image
 
 == Changelog ==
+= 1.8.2 =
+* Fixed typo in uninstall script.
+
 = 1.8.1 =
 * Small refactor, no code or feature changes.
 * Removed wp.org assets from plugin zip.

@@ -3,10 +3,12 @@
  * The actual plugin file.
  *
  * @package DFI
+ *
+ * @return void
  */
 function dfi_load() {
 
-	defined( 'DFI_VERSION' ) || define( 'DFI_VERSION', '1.8.1' );
+	defined( 'DFI_VERSION' ) || define( 'DFI_VERSION', '1.8.2' );
 	defined( 'DFI_DIR' ) || define( 'DFI_DIR', plugin_dir_path( __FILE__ ) );
 	defined( 'DFI_URL' ) || define( 'DFI_URL', plugin_dir_url( __FILE__ ) );
 
