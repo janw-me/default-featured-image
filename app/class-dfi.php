@@ -195,7 +195,7 @@ final class DFI {
 	 */
 	public function admin_scripts() {
 		wp_enqueue_media(); // scripts used for uploader.
-		wp_enqueue_script( 'dfi-script', DFI_URL . 'set-default-featured-image.js', array(), DFI_VERSION, true );
+		wp_enqueue_script( 'dfi-script', DFI_URL . 'src/dfi-admin.js', array(), DFI_VERSION, true );
 		wp_localize_script(
 			'dfi-script',
 			'dfi_L10n',
