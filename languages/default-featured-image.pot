@@ -1,0 +1,60 @@
+# Copyright (C) 2025 Jan Willem Oostendorp
+# This file is distributed under the GPLv2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Default featured image 1.8.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/default-featured-image\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-03-30T12:41:30+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.11.0\n"
+"X-Domain: default-featured-image\n"
+
+#. Plugin Name of the plugin
+#: set-default-featured-image.php
+msgid "Default featured image"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: set-default-featured-image.php
+msgid "http://wordpress.org/extend/plugins/default-featured-image/"
+msgstr ""
+
+#. Description of the plugin
+#: set-default-featured-image.php
+msgid "Allows users to select a default featured image in the media settings"
+msgstr ""
+
+#. Author of the plugin
+#: set-default-featured-image.php
+msgid "Jan Willem Oostendorp"
+msgstr ""
+
+#. Author URI of the plugin
+#: set-default-featured-image.php
+msgid "https://janw.me/"
+msgstr ""
+
+#: app/class-dfi.php:140
+msgctxt "Label on the settings page."
+msgid "Default featured image"
+msgstr ""
+
+#: app/class-dfi.php:163
+#: app/class-dfi.php:165
+#: app/class-dfi.php:203
+msgid "Select default featured image"
+msgstr ""
+
+#: app/class-dfi.php:169
+#: app/class-dfi.php:170
+msgid "Don't use a default featured image"
+msgstr ""
+
+#: app/class-dfi.php:204
+msgid "Set default featured image"
+msgstr ""
