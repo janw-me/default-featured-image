@@ -3,7 +3,7 @@
  * Plugin Name: Default featured image
  * Plugin URI: http://wordpress.org/extend/plugins/default-featured-image/
  * Description: Allows users to select a default featured image in the media settings
- * Version: 1.8.0
+ * Version: 1.8.1
  * Requires at least: 6.2
  * Requires PHP: 7.4
  * Author: Jan Willem Oostendorp

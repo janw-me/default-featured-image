@@ -2,7 +2,7 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Default featured image 1.8.0\n"
+"Project-Id-Version: Default featured image 1.8.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/default-featured-image\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
