@@ -10,4 +10,4 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 }
 
 // delete the settings.
-delete_option( 'dfi_default_image' );
+delete_option( 'dfi_image_id' );
