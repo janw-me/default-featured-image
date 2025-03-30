@@ -4,8 +4,6 @@ declare(strict_types=1);
 use Rector\Config\RectorConfig;
 use Rector\Php53\Rector\Ternary\TernaryToElvisRector;
 use Rector\Php54\Rector\Array_\LongArrayToShortArrayRector;
-use Rector\Php81\Rector\Array_\FirstClassCallableRector;
-use Rector\Php81\Rector\FuncCall\NullToStrictStringFuncCallArgRector;
 use Rector\EarlyReturn\Rector\Foreach_\ChangeNestedForeachIfsToEarlyContinueRector;
 use Rector\EarlyReturn\Rector\If_\ChangeIfElseValueAssignToEarlyReturnRector;
 use Rector\EarlyReturn\Rector\If_\ChangeNestedIfsToEarlyReturnRector;
@@ -25,7 +23,7 @@ return RectorConfig::configure()
 	->withSkipPath( __DIR__ . '/languages' )
 	->withSkipPath( __DIR__ . '/vendor' )
 
-	->withPhpSets( php82: true )
+	->withPhpSets( php74: true )
 	->withPreparedSets(
 		deadCode: true,
 	)
@@ -48,8 +46,6 @@ return RectorConfig::configure()
 		array(
 			LongArrayToShortArrayRector::class,
 			TernaryToElvisRector::class,
-			NullToStrictStringFuncCallArgRector::class, // PHPStan handles this better.
-			FirstClassCallableRector::class,
 			IfIssetToCoalescingRector::class,
 		),
 	);
