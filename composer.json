@@ -14,7 +14,9 @@
     "phpcs": "@php vendor/bin/phpcs",
     "lint": "@php vendor/bin/parallel-lint --exclude ../.git --exclude vendor  .",
     "phpstan": "@php vendor/bin/phpstan",
+    "phprector": "@php vendor/bin/rector --config=phprector.php",
     "ci": [
+      "@phprector",
       "@phpcbf",
       "@phpcs",
       "@lint",
@@ -43,7 +45,8 @@
     "phpcompatibility/phpcompatibility-wp": "^2.1.5",
     "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
     "szepeviktor/phpstan-wordpress": "^2.0.1",
-    "php-parallel-lint/php-parallel-lint": "^1.4"
+    "php-parallel-lint/php-parallel-lint": "^1.4",
+    "rector/rector": "^2.0"
   },
   "config": {
     "allow-plugins": {

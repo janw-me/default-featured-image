@@ -9,9 +9,14 @@
 /.gitignore export-ignore
 /.editorconfig export-ignore
 /composer.json export-ignore
-/.phpcs.xml.dist export-ignore
-/composer.json export-ignore
 /composer.lock export-ignore
 /package.json export-ignore
 /package-lock.json export-ignore
 /README.md export-ignore
+/phprector.php export-ignore
+/phpcs-fixer.dist.php export-ignore
+/phpcs.xml.dist export-ignore
+/phpstan.neon.dist export-ignore
+/phpstan.php export-ignore
+/support-examples.php export-ignore
+/.support export-ignore

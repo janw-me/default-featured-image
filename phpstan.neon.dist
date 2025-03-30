@@ -4,7 +4,7 @@ parameters:
   phpVersion: 70400
   level: 8
   bootstrapFiles:
-    - .phpstan.php
+    - phpstan.php
   paths:
     - app
     - set-default-featured-image.php
