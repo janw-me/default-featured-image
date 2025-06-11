@@ -10,12 +10,12 @@ wp_delete_post( 3, true ); // Delete Privacy Policy
 update_option( 'blogname', 'Default Featured Image Demo Site' );
 
 // Clear image sizes, This speedsup importing. As it doesn't need to generate all the image sizes.
-update_option( 'large_size_w', 0 );
-update_option( 'large_size_h', 0 );
-update_option( 'medium_size_w', 0 );
-update_option( 'medium_size_h', 0 );
-update_option( 'thumbnail_size_w', 0 );
-update_option( 'thumbnail_size_h', 0 );
+update_option( 'large_size_w', 99999999 );
+update_option( 'large_size_h', 99999999 );
+update_option( 'medium_size_w', 99999999 );
+update_option( 'medium_size_h', 99999999 );
+update_option( 'thumbnail_size_w', 99999999 );
+update_option( 'thumbnail_size_h', 99999999 );
 
 // Get the post of the DFI
 $dfi_posts = get_posts( array( 'post_title' => 'dfi', 'post_type' => 'attachment', 'posts_per_page' => 1 ) );
