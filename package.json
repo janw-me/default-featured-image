@@ -1,0 +1,24 @@
+{
+  "name": "default-featured-image",
+  "description": "WordPress plugin to set a Default Featured Image.",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run --config=tests/integration/vitest.config.ts && npx playwright test --config=tests/e2e/playwright.config.ts",
+    "test:integration": "vitest --config=tests/integration/vitest.config.ts",
+    "test:e2e": "npx playwright test --ui --config=tests/e2e/playwright.config.ts",
+    "server": "npx @wp-playground/cli server --mount=.:/wordpress/wp-content/plugins/default-featured-image --blueprint=.wordpress-org/blueprints/blueprint.json"
+  },
+  "author":     {
+      "name": "Jan Willem Oostendorp",
+      "email": "webmaster@janw.me",
+      "url": "https://janw.me"
+    },
+  "license": "GPLv2 or later",
+  "devDependencies": {
+    "@playwright/test": "^1.51.1",
+    "@types/node": "^22.14.1",
+    "@wp-playground/cli": "^1.1.1",
+    "fetch-cookie": "^3.1.0",
+    "vitest": "^3.1.1"
+  }
+}
