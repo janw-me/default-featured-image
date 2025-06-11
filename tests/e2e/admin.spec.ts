@@ -44,15 +44,20 @@ test.describe("DFI tests", () => {
 	test("Check default setup.", async ({ page }) => {
 		const wpAdminUrl = new URL(handler.absoluteUrl);
 
-		// Is DFI image set in the media settings.
+		/**
+		 * Check the admin page. It should already have a DFI thanks to the blueprint.
+		 */
 		await page.goto(wpAdminUrl.toString() + "wp-admin/options-media.php");
 		expect(page.locator('#preview-image img')).toBeVisible();
-		console.log(wpAdminUrl.toString(), dfiFileNameThumb, wpAdminUrl.toString() + dfiFileNameThumb);
 		expect( await page.locator('#preview-image img').getAttribute('src')).toMatch(wpAdminUrl.toString() + dfiFileNameThumb);
 		const DFI_ID = await page.locator("#dfi_id").inputValue();
-		// SHould be an integer.
 		expect(DFI_ID).toMatch(/^\d+$/);
 		expect(DFI_ID).toBeTruthy();
+
+		/**
+		 * Check the homepage.
+		 * It should have some posts with a DFI.
+		 */
 
 	});
 });
