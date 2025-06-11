@@ -28,7 +28,14 @@
             "step": "installTheme",
             "themeData": {
                 "resource": "wordpress.org/themes",
-                "slug": "twentytwentytwo"
+                "slug": "twentytwentythree"
+            }
+        },
+        {
+            "step": "importWxr",
+            "file": {
+                "resource": "url",
+                "url": "https://raw.githubusercontent.com/janw-me/default-featured-image/feature/playground-tests/.wordpress-org/blueprints/blueprint.xml"
             }
         },
         {
@@ -36,7 +43,7 @@
             "path":"/wordpress/wp-content/site-cleanup.php",
             "data":{
                "resource":"url",
-               "url":"https://raw.githubusercontent.com/janw-me/default-featured-image/main/.wordpress-org/blueprints/site-cleanup.php"
+               "url":"https://raw.githubusercontent.com/janw-me/default-featured-image/feature/playground-tests/.wordpress-org/blueprints/site-cleanup.php"
             }
          },
         {
