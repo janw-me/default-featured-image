@@ -32,13 +32,6 @@
             }
         },
         {
-            "step": "importWxr",
-            "file": {
-                "resource": "url",
-                "url": "https://raw.githubusercontent.com/janw-me/default-featured-image/main/.wordpress-org/blueprints/blueprint.xml"
-            }
-        },
-        {
             "step":"writeFile",
             "path":"/wordpress/wp-content/site-cleanup.php",
             "data":{

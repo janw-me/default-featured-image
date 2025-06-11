@@ -6,6 +6,7 @@
     "test": "vitest run --config=tests/integration/vitest.config.ts && npx playwright test --config=tests/e2e/playwright.config.ts",
     "test:integration": "vitest --config=tests/integration/vitest.config.ts",
     "test:e2e": "npx playwright test --ui --config=tests/e2e/playwright.config.ts",
+    "server-empty": "npx @wp-playground/cli server --mount=.:/wordpress/wp-content/plugins/default-featured-image",
     "server": "npx @wp-playground/cli server --mount=.:/wordpress/wp-content/plugins/default-featured-image --blueprint=.wordpress-org/blueprints/blueprint.json"
   },
   "author":     {
