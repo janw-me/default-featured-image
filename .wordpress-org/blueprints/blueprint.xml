@@ -508,7 +508,7 @@
 		<wp:post_type><![CDATA[attachment]]></wp:post_type>
 		<wp:post_password><![CDATA[]]></wp:post_password>
 		<wp:is_sticky>0</wp:is_sticky>
-						<wp:attachment_url><![CDATA[http://127.0.0.1:9400/wp-content/uploads/2024/01/selin-sahin-5DB3cYe7Nxk-unsplash.jpg]]></wp:attachment_url>
+						<wp:attachment_url><![CDATA[https://raw.githubusercontent.com/janw-me/default-featured-image/main/.wordpress-org/blueprints/selin-sahin-5DB3cYe7Nxk-unsplash.jpg]]></wp:attachment_url>
 											<wp:postmeta>
 		<wp:meta_key><![CDATA[_wp_attached_file]]></wp:meta_key>
 		<wp:meta_value><![CDATA[2024/01/selin-sahin-5DB3cYe7Nxk-unsplash.jpg]]></wp:meta_value>
@@ -541,7 +541,7 @@
 		<wp:post_type><![CDATA[attachment]]></wp:post_type>
 		<wp:post_password><![CDATA[]]></wp:post_password>
 		<wp:is_sticky>0</wp:is_sticky>
-						<wp:attachment_url><![CDATA[http://127.0.0.1:9400/wp-content/uploads/2024/01/lukas-souza-vjFC9OjrOtA-unsplash.jpg]]></wp:attachment_url>
+						<wp:attachment_url><![CDATA[https://raw.githubusercontent.com/janw-me/default-featured-image/main/.wordpress-org/blueprints/lukas-souza-vjFC9OjrOtA-unsplash.jpg]]></wp:attachment_url>
 											<wp:postmeta>
 		<wp:meta_key><![CDATA[_wp_attached_file]]></wp:meta_key>
 		<wp:meta_value><![CDATA[2024/01/lukas-souza-vjFC9OjrOtA-unsplash.jpg]]></wp:meta_value>
@@ -574,7 +574,7 @@
 		<wp:post_type><![CDATA[attachment]]></wp:post_type>
 		<wp:post_password><![CDATA[]]></wp:post_password>
 		<wp:is_sticky>0</wp:is_sticky>
-						<wp:attachment_url><![CDATA[http://127.0.0.1:9400/wp-content/uploads/2024/01/david-clode-dHkU0Ep-9Z0-unsplash.jpg]]></wp:attachment_url>
+						<wp:attachment_url><![CDATA[https://raw.githubusercontent.com/janw-me/default-featured-image/main/.wordpress-org/blueprints/david-clode-dHkU0Ep-9Z0-unsplash.jpg]]></wp:attachment_url>
 											<wp:postmeta>
 		<wp:meta_key><![CDATA[_wp_attached_file]]></wp:meta_key>
 		<wp:meta_value><![CDATA[2024/01/david-clode-dHkU0Ep-9Z0-unsplash.jpg]]></wp:meta_value>
@@ -607,7 +607,7 @@
 		<wp:post_type><![CDATA[attachment]]></wp:post_type>
 		<wp:post_password><![CDATA[]]></wp:post_password>
 		<wp:is_sticky>0</wp:is_sticky>
-						<wp:attachment_url><![CDATA[http://127.0.0.1:9400/wp-content/uploads/2024/01/james-wainscoat-yEW23jxVsNI-unsplash.jpg]]></wp:attachment_url>
+						<wp:attachment_url><![CDATA[https://raw.githubusercontent.com/janw-me/default-featured-image/main/.wordpress-org/blueprints/james-wainscoat-yEW23jxVsNI-unsplash.jpg]]></wp:attachment_url>
 											<wp:postmeta>
 		<wp:meta_key><![CDATA[_wp_attached_file]]></wp:meta_key>
 		<wp:meta_value><![CDATA[2024/01/james-wainscoat-yEW23jxVsNI-unsplash.jpg]]></wp:meta_value>
@@ -640,7 +640,7 @@
 		<wp:post_type><![CDATA[attachment]]></wp:post_type>
 		<wp:post_password><![CDATA[]]></wp:post_password>
 		<wp:is_sticky>0</wp:is_sticky>
-						<wp:attachment_url><![CDATA[http://127.0.0.1:9400/wp-content/uploads/2024/01/ray-hennessy-xUUZcpQlqpM-unsplash.jpg]]></wp:attachment_url>
+						<wp:attachment_url><![CDATA[https://raw.githubusercontent.com/janw-me/default-featured-image/main/.wordpress-org/blueprints/ray-hennessy-xUUZcpQlqpM-unsplash.jpg]]></wp:attachment_url>
 											<wp:postmeta>
 		<wp:meta_key><![CDATA[_wp_attached_file]]></wp:meta_key>
 		<wp:meta_value><![CDATA[2024/01/ray-hennessy-xUUZcpQlqpM-unsplash.jpg]]></wp:meta_value>
@@ -673,7 +673,7 @@
 		<wp:post_type><![CDATA[attachment]]></wp:post_type>
 		<wp:post_password><![CDATA[]]></wp:post_password>
 		<wp:is_sticky>0</wp:is_sticky>
-						<wp:attachment_url><![CDATA[http://127.0.0.1:9400/wp-content/uploads/2024/01/dfi.png]]></wp:attachment_url>
+						<wp:attachment_url><![CDATA[https://raw.githubusercontent.com/janw-me/default-featured-image/main/.wordpress-org/blueprints/dfi.png]]></wp:attachment_url>
 											<wp:postmeta>
 		<wp:meta_key><![CDATA[_wp_attached_file]]></wp:meta_key>
 		<wp:meta_value><![CDATA[2024/01/dfi.png]]></wp:meta_value>
