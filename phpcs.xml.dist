@@ -31,6 +31,7 @@
 
     <rule ref="WordPress">
       <exclude name="Squiz.Commenting.FileComment.Missing"/>
+	  <exclude name="Generic.Functions.CallTimePassByReference"/>
     </rule>
 
     <config name="testVersion" value="7.4-"/>

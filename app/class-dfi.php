@@ -6,6 +6,11 @@
 final class DFI {
 
 	/**
+	 * The option name.
+	 */
+	const OPTION = 'dfi_image_id';
+
+	/**
 	 * Holds the instance.
 	 *
 	 * @var self
@@ -40,6 +45,17 @@ final class DFI {
 	}
 
 	/**
+	 * Get the DFI ID.
+	 */
+	public function get_dfi_id(): int {
+		$dfi_id = get_option( self::OPTION );
+		if ( ! ctype_digit( $dfi_id ) || empty( $dfi_id ) ) {
+			return 0; // No valid ID, return 0.
+		}
+		return absint( $dfi_id );
+	}
+
+	/**
 	 * Add the dfi_id to the meta data if needed.
 	 *
 	 * @param null|mixed $_null      Should be null, we don't use it because we update the meta cache.
@@ -47,16 +63,16 @@ final class DFI {
 	 * @param string     $meta_key  Optional. Metadata key. If not specified, retrieve all metadata for
 	 *                              the specified object.
 	 *
-	 * @return string|string[] Single metadata value, or array of values
+	 * @return null|mixed Single metadata value, or array of values
 	 */
 	public function set_dfi_meta_key( $_null, $object_id, $meta_key ) {
-		// Only affect thumbnails on the frontend, do allow ajax calls.
-		if ( ( is_admin() && ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) ) ) {
+		// Check only empty meta_key and '_thumbnail_id'.
+		if ( ! empty( $meta_key ) && '_thumbnail_id' !== $meta_key ) {
 			return $_null;
 		}
 
-		// Check only empty meta_key and '_thumbnail_id'.
-		if ( ! empty( $meta_key ) && '_thumbnail_id' !== $meta_key ) {
+		// Only affect thumbnails on the frontend, do allow ajax calls.
+		if ( ( is_admin() && ! wp_doing_ajax() ) ) {
 			return $_null;
 		}
 
@@ -66,7 +82,6 @@ final class DFI {
 			return $_null; // post type does not support featured images.
 		}
 
-		// Get current Cache.
 		$meta_cache = wp_cache_get( $object_id, 'post_meta' );
 
 		/**
@@ -88,11 +103,8 @@ final class DFI {
 			return $_null; // it is present, don't check anymore.
 		}
 
-		// Get the Default Featured Image ID.
-		$dfi_id = get_option( 'dfi_image_id' );
-
 		// Set the dfi in cache.
-		$meta_cache['_thumbnail_id'][0] = apply_filters( 'dfi_thumbnail_id', $dfi_id, $object_id );
+		$meta_cache['_thumbnail_id'][0] = apply_filters( 'dfi_thumbnail_id', $this->get_dfi_id(), $object_id );
 		wp_cache_set( $object_id, $meta_cache, 'post_meta' );
 
 		return $_null;
@@ -106,7 +118,7 @@ final class DFI {
 	public function register_media_setting() {
 		register_setting(
 			'media', // settings page.
-			'dfi_image_id', // option name.
+			self::OPTION, // option name.
 			array(
 				'sanitize_callback' => array( &$this, 'input_validation' ),
 				'show_in_rest'      => array(
@@ -141,15 +153,15 @@ final class DFI {
 	 * @return void
 	 */
 	public function settings_html() {
-		$value = get_option( 'dfi_image_id' );
+		$dfi_id = $this->get_dfi_id();
 
 		$rm_btn_class = 'button button-disabled';
-		if ( ! empty( $value ) ) {
-			echo $this->preview_image( $value ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		if ( ! empty( $dfi_id ) ) {
+			echo $this->preview_image( $dfi_id ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			$rm_btn_class = 'button';
 		}
 		?>
-		<input id="dfi_id" type="hidden" value="<?php echo esc_attr( $value ); ?>" name="dfi_image_id"/>
+		<input id="dfi_id" type="hidden" value="<?php echo absint( $dfi_id ); ?>" name="dfi_image_id"/>
 
 		<a id="dfi-set-dfi" class="button" title="<?php esc_attr_e( 'Select default featured image', 'default-featured-image' ); ?>" href="#">
 			<span style="margin-top: 3px;" class="dashicons dashicons-format-image"></span>
@@ -204,7 +216,7 @@ final class DFI {
 	 *
 	 * @return string
 	 */
-	public function preview_image( $image_id ) {
+	public function preview_image( int $image_id ) {
 		$output  = '<div id="preview-image" style="float:left; padding: 0 5px 0 0;">';
 		$output .= wp_get_attachment_image( $image_id, array( 80, 60 ), true );
 
@@ -219,9 +231,10 @@ final class DFI {
 	public function ajax_wrapper() {
 		//phpcs:disable WordPress.Security.NonceVerification.Missing
 		// This is only a preview, don't bother verifying.
-		if ( ! empty( $_POST['image_id'] ) && absint( $_POST['image_id'] ) ) {
-			$img_id = absint( $_POST['image_id'] );
-			echo $this->preview_image( $img_id ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
+		$dfi_id = filter_input( INPUT_POST, 'dfi_image_id', FILTER_VALIDATE_INT );
+		if ( $dfi_id ) {
+			echo $this->preview_image( $dfi_id ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 		die(); // ajax call..
 	}
@@ -244,19 +257,19 @@ final class DFI {
 	/**
 	 * Set a default featured image if it is missing
 	 *
-	 * @param string         $html              The post thumbnail HTML.
-	 * @param int            $post_id           The post ID.
-	 * @param int            $post_thumbnail_id The post thumbnail ID.
-	 * @param string|int[]   $size              The post thumbnail size. Image size or array of width and height.
-	 * @param string|mixed[] $attr              values (in that order). Default 'post-thumbnail'.
+	 * @param string          $html              The post thumbnail HTML.
+	 * @param int             $post_id           The post ID.
+	 * @param int             $post_thumbnail_id The post thumbnail ID.
+	 * @param string|int[]    $size              The post thumbnail size. Image size or array of width and height.
+	 * @param string|string[] $attr              values (in that order). Default 'post-thumbnail'.
 	 *
 	 * @return string
 	 */
 	public function show_dfi( $html, $post_id, $post_thumbnail_id, $size, $attr ) {
-		$default_thumbnail_id = get_option( 'dfi_image_id' ); // select the default thumb.
+		$dfi_id = $this->get_dfi_id();
 
 		// If an image is set return that image.
-		if ( (int) $default_thumbnail_id !== (int) $post_thumbnail_id ) {
+		if ( $dfi_id !== (int) $post_thumbnail_id ) {
 			return $html;
 		}
 
@@ -267,7 +280,11 @@ final class DFI {
 			wp_parse_str( $str_attr, $attr );
 			unset( $str_attr );
 		}
-
+		/**
+		 * After this the attr is aways an array.
+		 *
+		 * @var string[] $attr
+		 */
 		if ( isset( $attr['class'] ) ) {
 			// There already are classes, we trust those.
 			$attr['class'] .= ' default-featured-img';
@@ -279,7 +296,7 @@ final class DFI {
 			}
 		}
 
-		$html = wp_get_attachment_image( $default_thumbnail_id, $size, false, $attr );
-		return apply_filters( 'dfi_thumbnail_html', $html, $post_id, $default_thumbnail_id, $size, $attr );
+		$html = wp_get_attachment_image( $dfi_id, $size, false, $attr );
+		return apply_filters( 'dfi_thumbnail_html', $html, $post_id, $dfi_id, $size, $attr );
 	}
 }
