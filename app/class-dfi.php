@@ -161,7 +161,7 @@ final class DFI {
 			$rm_btn_class = 'button';
 		}
 		?>
-		<input id="dfi_id" type="hidden" value="<?php echo absint( $dfi_id ); ?>" name="dfi_image_id"/>
+		<input id="dfi_id" type="hidden" value="<?php echo absint( $dfi_id ); ?>" name="<?php echo esc_attr( $this::OPTION ); ?>"/>
 
 		<a id="dfi-set-dfi" class="button" title="<?php esc_attr_e( 'Select default featured image', 'default-featured-image' ); ?>" href="#">
 			<span style="margin-top: 3px;" class="dashicons dashicons-format-image"></span>
@@ -232,7 +232,7 @@ final class DFI {
 		//phpcs:disable WordPress.Security.NonceVerification.Missing
 		// This is only a preview, don't bother verifying.
 
-		$dfi_id = filter_input( INPUT_POST, 'dfi_image_id', FILTER_VALIDATE_INT );
+		$dfi_id = filter_input( INPUT_POST, $this::OPTION, FILTER_VALIDATE_INT );
 		if ( $dfi_id ) {
 			echo $this->preview_image( $dfi_id ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
