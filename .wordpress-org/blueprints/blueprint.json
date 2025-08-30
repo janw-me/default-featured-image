@@ -4,40 +4,38 @@
         "php": "8.2",
         "wp": "latest"
     },
-    "phpExtensionBundles": [
-        "kitchen-sink"
-    ],
     "features": {
         "networking": true
     },
     "steps": [
         {
             "step": "login",
-            "username": "admin",
-            "password": "password"
+            "username": "admin"
         },
         {
             "step": "installPlugin",
-            "pluginZipFile": {
+            "ifAlreadyInstalled": "skip",
+            "pluginData": {
                 "resource": "wordpress.org/plugins",
                 "slug": "default-featured-image"
-            },
-            "options": {
-                "activate": true
             }
+        },
+        {
+            "step": "activatePlugin",
+            "pluginPath": "/wordpress/wp-content/plugins/default-featured-image/set-default-featured-image.php"
         },
         {
             "step": "installTheme",
-            "themeZipFile": {
+            "themeData": {
                 "resource": "wordpress.org/themes",
-                "slug": "twentytwentytwo"
+                "slug": "twentytwentythree"
             }
         },
         {
-            "step": "importFile",
+            "step": "importWxr",
             "file": {
                 "resource": "url",
-                "url": "https://raw.githubusercontent.com/janw-me/default-featured-image/main/.wordpress-org/blueprints/blueprint.xml"
+                "url": "https://raw.githubusercontent.com/janw-me/default-featured-image/feature/playground-tests/.wordpress-org/blueprints/blueprint.xml"
             }
         },
         {
@@ -45,7 +43,7 @@
             "path":"/wordpress/wp-content/site-cleanup.php",
             "data":{
                "resource":"url",
-               "url":"https://raw.githubusercontent.com/janw-me/default-featured-image/main/.wordpress-org/blueprints/site-cleanup.php"
+               "url":"https://raw.githubusercontent.com/janw-me/default-featured-image/feature/playground-tests/.wordpress-org/blueprints/site-cleanup.php"
             }
          },
         {

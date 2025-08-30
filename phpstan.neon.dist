@@ -2,7 +2,7 @@ includes:
   - vendor/szepeviktor/phpstan-wordpress/extension.neon
 parameters:
   phpVersion: 70400
-  level: 8
+  level: 9
   bootstrapFiles:
     - phpstan.php
   paths:

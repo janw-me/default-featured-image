@@ -13,6 +13,7 @@
 .travis.yml
 .DS_Store
 .wordpress-org
+tests
 Thumbs.db
 behat.yml
 bitbucket-pipelines.yml

@@ -6,7 +6,8 @@
   "authors": [
     {
       "name": "Jan Willem Oostendorp",
-      "email": "webmaster@janw.me"
+      "email": "webmaster@janw.me",
+      "homepage": "https://janw.me"
     }
   ],
   "scripts": {
