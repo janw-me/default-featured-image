@@ -18,7 +18,7 @@
   "license": "GPLv2 or later",
   "devDependencies": {
     "@playwright/test": "^1.51.1",
-    "@types/node": "^22.14.1",
+    "@types/node": "^24.3.0",
     "@wp-playground/cli": "^1.1.1",
     "fetch-cookie": "^3.1.0",
     "vitest": "^3.1.1"
