@@ -2,7 +2,7 @@
 Contributors: janwoostendorp
 Tags: media, image
 Requires at least: 6.2
-Tested up to: 6.8.3
+Tested up to: 6.9
 Requires PHP: 7.4
 Stable tag: 1.8.2
 License: GPLv2 or later
@@ -183,4 +183,5 @@ The following code will exclude the post/page with ID 23.
 
 = 1.0 =
 Update makes sure that the set image will show. Everywhere.
+
 
